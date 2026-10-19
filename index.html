@@ -8,12 +8,12 @@
 <meta name="description" content="ARVYX Yoga Intelligence — ARVI helps your studio with students, classes and follow-ups.">
 <meta property="og:title" content="ARVYX — Intelligence in Harmony">
 <meta property="og:description" content="Meet ARVI, the calm AI assistant for yoga studios.">
-<meta property="og:image" content="hero_lotus.png">
+<meta property="og:image" content="hero_lotus-1.png">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --green:#16473A;--cream:#F6EFDC;--gold:#C9A24B;--leaf:#5E9E7E;--aqua:#2DD4CF;--night:#0A0F0E;--ink:#1F2B27;
@@ -35,7 +35,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;border:0;background:none}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-.015em}
 .app{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100dvh}
 /* sidebar */
 .side{background:var(--green);color:var(--cream);padding:24px 16px;display:flex;flex-direction:column;gap:18px;position:sticky;top:0;height:100dvh}
@@ -55,7 +55,7 @@ main{min-width:0;background:var(--bg);position:relative}
 .wrap.dash{grid-template-columns:minmax(0,1fr) 330px;align-items:start}
 .page{display:none}.page.on{display:block}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
-.top h1{font-size:34px;color:var(--accent)}
+.top h1{font-size:30px;color:var(--accent)}
 .top p{color:var(--muted);font-size:14px}
 .pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;display:inline-flex;align-items:center;gap:8px;font-size:13px}
 .icobtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--accent)}
@@ -69,7 +69,7 @@ main{min-width:0;background:var(--bg);position:relative}
 @keyframes breathe{50%{transform:scale(1.03)}}
 @media(prefers-reduced-motion:reduce){.hero .lotus,.dots i{animation:none!important}}
 .wordmark{font-family:var(--serif);font-size:48px;letter-spacing:.3em;padding-left:.3em;color:var(--accent);font-weight:600;line-height:1}
-.hero h2{font-size:28px;margin-top:10px}
+.hero h2{font-size:26px;margin-top:12px}
 .hero .tag{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:6px}
 .ready{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
 .ready:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 4px rgba(94,158,126,.2)}
@@ -77,7 +77,7 @@ main{min-width:0;background:var(--bg);position:relative}
 .avatar img{width:22px}
 .today{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
 .today a{flex:1;min-width:130px;background:var(--warm);border-radius:14px;padding:10px 14px;text-decoration:none;color:var(--text);display:block}
-.today b{font-size:22px;font-family:var(--serif);color:var(--accent);display:block;line-height:1.1}
+.today b{font-size:20px;font-weight:700;font-family:var(--sans);color:var(--accent);display:block;line-height:1.1}
 .today span{font-size:12.5px;color:var(--help)}
 .topics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
 .topic{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
@@ -88,9 +88,11 @@ main{min-width:0;background:var(--bg);position:relative}
 .ask input{flex:1;min-width:0;border:0;background:none;outline:0;padding:8px 0;font-size:16px}
 .send{width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--onaccent);display:grid;place-items:center;flex:none}
 .quote{text-align:center;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--accent);margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.quote img{width:28px;opacity:.9}
+.quote img{width:28px;opacity:.9}.quote small{font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.why{margin-top:26px}.why h3{font-size:18px;margin-bottom:12px;color:var(--accent)}.whygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.whygrid .card{padding:14px;display:flex;flex-direction:column;gap:6px}.whygrid .i{color:var(--gold);width:24px;height:24px}.whygrid b{font-size:14px}.whygrid span{font-size:12.5px;color:var(--help);line-height:1.45}
+@media(max-width:860px){.whygrid{grid-template-columns:repeat(2,1fr)}}
 /* prompts */
-.prompts h3{font-size:22px;margin-bottom:10px;color:var(--accent)}
+.prompts h3{font-size:18px;margin-bottom:10px;color:var(--accent)}
 .prompt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px;border-radius:14px}
 .prompt:hover{background:rgba(94,158,126,.12)}
 .prompt .ic{width:44px;height:44px;border-radius:50%;background:rgba(201,162,75,.18);color:var(--gold);display:grid;place-items:center;flex:none}
@@ -123,7 +125,7 @@ tr.click{cursor:pointer}tr.click:hover td{background:rgba(94,158,126,.08)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
 .cap{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
 .cap i{display:block;height:100%;background:var(--leaf)}
-.grp{font-family:var(--serif);font-size:20px;color:var(--accent);margin:18px 0 6px}
+.grp{font-family:var(--sans);font-weight:700;font-size:17px;color:var(--accent);margin:18px 0 6px}
 .chk{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--leaf);flex:none;margin-top:2px;display:grid;place-items:center;color:#fff}
 .chk.on{background:var(--leaf)}
 .done .name{text-decoration:line-through;color:var(--muted)}
@@ -143,11 +145,11 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
 /* chat */
 .chatpage{display:flex;flex-direction:column;height:100dvh}
 .chathead{padding:18px 32px 8px;display:flex;align-items:center;gap:12px;justify-content:space-between}
-.chathead h1{font-size:30px;color:var(--accent)}
+.chathead h1{font-size:26px;color:var(--accent)}
 .msgs{flex:1;overflow-y:auto;padding:10px 32px;display:flex;flex-direction:column;gap:14px;overscroll-behavior:contain}
 .empty{margin:auto;text-align:center;max-width:520px}
 .empty img{width:170px;animation:breathe 6s ease-in-out infinite}
-.empty h2{font-size:26px;margin:6px 0 12px}
+.empty h2{font-size:24px;margin:6px 0 12px}
 .empty .chips{flex-wrap:wrap;justify-content:center;overflow:visible}
 .m{display:flex;gap:10px;max-width:760px}
 .m.user{align-self:flex-end;flex-direction:row-reverse}
@@ -176,12 +178,12 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
 .toast.on{opacity:1}
 .bnav{display:none}
 .hide-m{}
-@media(max-width:1100px){.wrap.dash{grid-template-columns:minmax(0,1fr)}.prompts{display:none}}
+@media(max-width:1100px){.wrap.dash{grid-template-columns:minmax(0,1fr)}.prompts{display:none}.split{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:860px){
   .app{display:block}
   .side{display:none}
   .wrap{padding:calc(14px + var(--safe-t)) 16px calc(96px + var(--safe-b))}
-  .top h1{font-size:28px}
+  .top h1{font-size:24px}
   .topics{grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:1fr}
   .grid2{grid-template-columns:1fr}
@@ -252,12 +254,12 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
           <button class="icobtn" id="modeBtn" aria-label="Toggle light and dark mode"><svg class="i"><use href="#moon"/></svg></button>
         </div>
         <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 16px">
-          <div class="avatar"><img src="hero_lotus.png" alt="ARVI"></div>
+          <div class="avatar"><img src="hero_lotus-1.png" alt="ARVI"></div>
           <div class="ready">ARVI is ready</div>
         </div>
         <div class="today" id="today"></div>
         <div class="hero">
-          <img class="lotus" src="hero_lotus.png" alt="ARVI lotus">
+          <img class="lotus" src="hero_lotus-1.png" alt="ARVI lotus">
           <div class="wordmark">ARVI</div>
           <div class="tag">Intelligence in Harmony</div>
           <h2>Namaste! How can I help your studio today?</h2>
@@ -269,7 +271,17 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
           <button class="topic" data-q="Write a short Instagram caption for our new Sunday workshop."><svg class="i"><use href="#book"/></svg><b>Studio content</b><span>Posts & captions</span></button>
         </div>
         <form class="ask" id="homeAsk"><input id="homeIn" placeholder="Ask ARVI anything about your studio…" aria-label="Ask ARVI"><button class="send" aria-label="Send"><svg class="i"><use href="#send"/></svg></button></form>
-        <div class="quote"><img src="side_logo.png" alt=""><span>Small steps on the mat create big changes in life.</span></div>
+        <section class="why">
+          <h3>Why yoga matters</h3>
+          <div class="whygrid">
+            <div class="card"><svg class="i"><use href="#spark"/></svg><b>Calmer mind</b><span>Breathwork and mindful movement lower everyday stress and sharpen focus.</span></div>
+            <div class="card"><svg class="i"><use href="#sun"/></svg><b>Stronger body</b><span>Regular practice builds flexibility, balance and posture at any age.</span></div>
+            <div class="card"><svg class="i"><use href="#moon"/></svg><b>Better sleep</b><span>Slow evening sequences help the body wind down and rest deeply.</span></div>
+            <div class="card"><svg class="i"><use href="#users"/></svg><b>Community</b><span>Studios give people a steady, supportive place to grow together.</span></div>
+          </div>
+          <p class="help" style="margin-top:10px">General wellbeing information, not medical advice.</p>
+        </section>
+        <div class="quote" id="quote"><img src="side_logo.png" alt=""><span id="qText"></span><small id="qBy"></small></div>
       </div>
       <aside class="prompts card">
         <h3>Try asking ARVI</h3>
@@ -310,7 +322,7 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
     <!-- ARVI CHAT -->
     <section class="page" id="p-arvi">
       <div class="chatpage">
-        <div class="chathead"><div style="display:flex;align-items:center;gap:12px"><div class="avatar"><img src="hero_lotus.png" alt=""></div><div><h1>ARVI Assistant</h1><div class="ready" id="aState">Online</div></div></div><button class="btn ghost sm" id="clearChat">New chat</button></div>
+        <div class="chathead"><div style="display:flex;align-items:center;gap:12px"><div class="avatar"><img src="hero_lotus-1.png" alt=""></div><div><h1>ARVI Assistant</h1><div class="ready" id="aState">Online</div></div></div><button class="btn ghost sm" id="clearChat">New chat</button></div>
         <div class="msgs" id="msgs" aria-live="polite"></div>
         <div class="note">General guidance, not medical advice.</div>
         <div class="composer">
@@ -336,7 +348,7 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
       <div class="top"><div><h1>Settings</h1><p>Make ARVYX yours.</p></div></div>
       <div class="card">
         <h3 style="margin-bottom:12px">Studio profile</h3>
-        <div class="field"><label for="sName">Studio name</label><input id="sName" placeholder="e.g. Lotus Yoga Studio"><span class="saved" id="sSaved">Saved ✓</span></div>
+        <div class="field"><label for="sName">Studio name <span class="saved" id="sSaved">Saved ✓</span></label><input id="sName" placeholder="e.g. Lotus Yoga Studio"></div>
         <div class="field"><label for="sCity">City</label><input id="sCity" placeholder="e.g. Kochi"></div>
         <div class="field"><label>Appearance</label>
           <div class="seg" id="modeSeg"><button data-m="auto">Auto</button><button data-m="light">Light</button><button data-m="dark">Dark</button></div>
@@ -351,11 +363,7 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
         <h3 style="margin-bottom:8px">ARVI status</h3>
         <div class="online"><span class="led" id="led"></span><b id="ledTxt">Checking…</b><button class="btn ghost sm" id="testAi">Test ARVI</button></div>
       </div>
-      <details style="margin-top:16px"><summary>Advanced</summary>
-        <div class="field" style="margin-top:12px"><label for="sUrl">ARVI service address</label><input id="sUrl" placeholder="https://YOUR-PROJECT.supabase.co/functions/v1/arvi-chat"><span class="help">Paste your Supabase Edge Function URL. Never paste an API key here — keys live in Supabase secrets only.</span></div>
-        <button class="btn sm" id="saveUrl">Save address</button>
-        <button class="btn ghost sm" id="resetData" style="margin-left:8px">Reset sample data</button>
-      </details>
+      <div style="margin-top:16px"><button class="btn ghost sm" id="resetData">Reset sample data</button></div>
       <div class="card" style="margin-top:16px">
         <h3 style="margin-bottom:8px">Privacy checklist</h3>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
@@ -393,24 +401,25 @@ function store(k,v){try{if(v===undefined){var r=localStorage.getItem(k);return r
 function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},1800)}
 
 /* ================= ARVI AI CONNECTION =================
-   >>> PASTE YOUR EXISTING SUPABASE / GEMINI / OPENROUTER CALL HERE <<<
-   Set ARVI_URL to your Supabase Edge Function address (or paste it in Settings → Advanced).
-   The function should accept {message, language, history} and return {reply: "..."}.
-   NEVER put an API key in this file. */
-var ARVI_URL='';           // e.g. 'https://YOUR-PROJECT.supabase.co/functions/v1/arvi-chat'
-var SUPABASE_ANON_KEY='';  // the public anon key is OK here; never the service key or AI keys
-function arviUrl(){return store('arvi_url')||ARVI_URL}
-function callARVI(message,language,history,signal){
-  var url=arviUrl();
-  if(!url){return new Promise(function(res){setTimeout(function(){res(demoReply(message,language))},700)})}
-  var h={'Content-Type':'application/json'};
-  if(SUPABASE_ANON_KEY){h['Authorization']='Bearer '+SUPABASE_ANON_KEY;h['apikey']=SUPABASE_ANON_KEY}
-  return fetch(url,{method:'POST',headers:h,body:JSON.stringify({message:message,language:language,history:history}),signal:signal})
-    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
-    .then(function(d){var t=d.reply||d.text||d.answer||(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content);if(!t)throw new Error('Empty reply');return t});
+   Gemini first, OpenRouter as fallback, both through your Supabase Edge Functions.
+   Only the PUBLIC publishable key is used here. Gemini/OpenRouter keys stay in Supabase secrets. */
+var SUPABASE_ANON_KEY='sb_publishable_LM1Fb5pDCrSNNE8Q2Yp_wg_BnxsoWTa';
+var GEMINI_URL='https://lpwmwdopywgxzzdlrddr.supabase.co/functions/v1/jarvis-gemini';
+var OPENROUTER_URL='https://lpwmwdopywgxzzdlrddr.supabase.co/functions/v1/jarvis-assistant';
+function post(url,payload,field,signal){
+  return fetch(url,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY},body:JSON.stringify(payload),signal:signal})
+    .then(function(r){return r.json().catch(function(){return {}}).then(function(d){if(!r.ok||d.error)throw new Error(d.error||('HTTP '+r.status));var t=d[field];if(typeof t!=='string'||!t.trim())throw new Error('Empty reply');return t.trim()})});
 }
-function demoReply(m,l){
-  return "Namaste! (Demo mode — ARVI is not connected yet.)\n\nYou asked: “"+m+"”.\n\nOnce your Supabase address is added in Settings → Advanced, I will answer with live guidance"+(l!=='English'?" in "+l:"")+".";
+function buildPrompt(message,language,history){
+  var ctx=(history||[]).slice(0,-1).slice(-6).map(function(m){return (m.role==='user'?'Student/teacher: ':'ARVI: ')+m.content}).join('\n');
+  return 'You are ARVI, the calm, friendly assistant of ARVYX for yoga teachers and studios. Reply in '+language+'. Be warm, practical and concise. Give general wellness guidance only, not medical advice.'+(ctx?'\n\nConversation so far:\n'+ctx:'')+'\n\nRequest: '+message;
+}
+function callARVI(message,language,history,signal){
+  var prompt=buildPrompt(message,language,history);
+  return post(GEMINI_URL,{prompt:prompt},'text',signal).catch(function(e){
+    if(e&&e.name==='AbortError')throw e;
+    return post(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal);
+  });
 }
 
 /* ================= SAMPLE DATA ================= */
@@ -459,8 +468,8 @@ function greeting(){
 }
 function setLotus(){
   var dark=document.documentElement.getAttribute('data-mode')==='dark';
-  $$('.hero .lotus,.empty img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus.png'});
-  $$('.think img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus.png'});
+  $$('.hero .lotus,.empty img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus-1.png'});
+  $$('.think img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus-1.png'});
 }
 $('#modeBtn').onclick=function(){var d=document.documentElement.getAttribute('data-mode')==='dark';store('arvyx_mode',d?'light':'dark');applyMode()};
 $$('#modeSeg button').forEach(function(b){b.onclick=function(){store('arvyx_mode',b.dataset.m);applyMode()}});
@@ -526,7 +535,7 @@ function renderStudents(){
 function profile(){
   var s=D.students.filter(function(x){return x.id===stuSel})[0],el=$('#stuProfile');
   if(!s){el.innerHTML='<p class="sub">Select a student to see their profile.</p>';return}
-  el.innerHTML='<div class="avatar" style="width:56px;height:56px;font-family:var(--serif);color:var(--cream);font-size:22px">'+esc(s.name.charAt(0))+'</div><h3 style="margin:10px 0 2px">'+esc(s.name)+'</h3><p class="sub">'+esc(s.level)+' · '+s.status+'</p><p class="sub" style="margin-top:8px">'+esc(s.phone)+'</p><p style="margin-top:8px">'+esc(s.note||'No notes yet.')+'</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn sm" id="pMsg">Draft message</button><button class="btn ghost sm" id="pFu">Add follow-up</button></div>';
+  el.innerHTML='<div class="avatar" style="width:56px;height:56px;font-weight:700;color:var(--cream);font-size:22px">'+esc(s.name.charAt(0))+'</div><h3 style="margin:10px 0 2px">'+esc(s.name)+'</h3><p class="sub">'+esc(s.level)+' · '+s.status+'</p><p class="sub" style="margin-top:8px">'+esc(s.phone)+'</p><p style="margin-top:8px">'+esc(s.note||'No notes yet.')+'</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn sm" id="pMsg">Draft message</button><button class="btn ghost sm" id="pFu">Add follow-up</button></div>';
   $('#pMsg').onclick=function(){goAsk('Write a friendly WhatsApp message to '+s.name+' ('+s.level+', '+s.status+', last visit '+s.last+').')};
   $('#pFu').onclick=function(){D.follow.unshift({id:Date.now(),text:'Check in with '+s.name,when:'Today',done:0});save();toast('Follow-up added')};
 }
@@ -534,7 +543,7 @@ $('#addStu').onclick=function(){var n=prompt('Student name?');if(!n)return;D.stu
 
 /* ================= CLASSES ================= */
 function renderClasses(){
-  $('#classList').innerHTML=D.classes.map(function(c){var p=Math.round(c.booked/c.cap*100);return '<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><h3 style="font-size:22px">'+esc(c.name)+'</h3>'+(c.past?'<span class="tag t-done" style="margin:0;height:fit-content">Completed</span>':'')+'</div><p class="sub">'+esc(c.when)+'</p><p style="margin-top:8px;font-size:14px">'+c.booked+' of '+c.cap+' spots · '+(c.cap-c.booked)+' left</p><div class="cap"><i style="width:'+p+'%"></i></div></div>'}).join('');
+  $('#classList').innerHTML=D.classes.map(function(c){var p=Math.round(c.booked/c.cap*100);return '<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><h3 style="font-size:19px">'+esc(c.name)+'</h3>'+(c.past?'<span class="tag t-done" style="margin:0;height:fit-content">Completed</span>':'')+'</div><p class="sub">'+esc(c.when)+'</p><p style="margin-top:8px;font-size:14px">'+c.booked+' of '+c.cap+' spots · '+(c.cap-c.booked)+' left</p><div class="cap"><i style="width:'+p+'%"></i></div></div>'}).join('');
 }
 
 /* ================= FOLLOW-UPS ================= */
@@ -552,7 +561,7 @@ function persistChat(){store('arvyx_chat',chat.slice(-60))}
 function renderChat(){
   var box=$('#msgs');
   if(!chat.length){
-    box.innerHTML='<div class="empty"><img src="hero_lotus.png" alt="ARVI"><h2>Namaste! How can I help?</h2><div class="chips">'+PROMPTS.map(function(p){return '<button class="chip" data-q="'+esc(p[2])+'">'+p[1]+'</button>'}).join('')+'</div></div>';setLotus();
+    box.innerHTML='<div class="empty"><img src="hero_lotus-1.png" alt="ARVI"><h2>Namaste! How can I help?</h2><div class="chips">'+PROMPTS.map(function(p){return '<button class="chip" data-q="'+esc(p[2])+'">'+p[1]+'</button>'}).join('')+'</div></div>';setLotus();
   }else{
     box.innerHTML=chat.map(function(m,i){return bubble(m,i)}).join('');
   }
@@ -562,11 +571,11 @@ function renderChat(){
 function bubble(m,i){
   if(m.role==='user')return '<div class="m user"><div class="bub">'+esc(m.text)+'</div></div>';
   var last=i===chat.length-1;
-  return '<div class="m bot"><div class="avatar"><img src="hero_lotus.png" alt=""></div><div><div class="bub">'+esc(m.text)+'</div>'+(m.err?'<div class="acts"><button data-act="retry">Retry</button></div>':'<div class="acts"><button data-act="copy" data-i="'+i+'">Copy</button><button data-act="wa" data-i="'+i+'">Copy for WhatsApp</button><button data-act="fu" data-i="'+i+'">Save as follow-up</button><button data-act="inb" data-i="'+i+'">Add to Smart Inbox</button>'+(last?'<button data-act="regen">Regenerate</button>':'')+'</div>')+'</div></div>';
+  return '<div class="m bot"><div class="avatar"><img src="hero_lotus-1.png" alt=""></div><div><div class="bub">'+esc(m.text)+'</div>'+(m.err?'<div class="acts"><button data-act="retry">Retry</button></div>':'<div class="acts"><button data-act="copy" data-i="'+i+'">Copy</button><button data-act="wa" data-i="'+i+'">Copy for WhatsApp</button><button data-act="fu" data-i="'+i+'">Save as follow-up</button><button data-act="inb" data-i="'+i+'">Add to Smart Inbox</button>'+(last?'<button data-act="regen">Regenerate</button>':'')+'</div>')+'</div></div>';
 }
 function thinking(on){
   var old=$('#thinkMsg');if(old)old.remove();
-  if(on){var d=document.createElement('div');d.id='thinkMsg';d.className='m bot';d.innerHTML='<div class="think"><img src="hero_lotus.png" alt=""><span>Preparing your answer<span class="dots"> <i></i><i></i><i></i></span></span></div>';$('#msgs').appendChild(d);setLotus();$('#msgs').scrollTop=1e6}
+  if(on){var d=document.createElement('div');d.id='thinkMsg';d.className='m bot';d.innerHTML='<div class="think"><img src="hero_lotus-1.png" alt=""><span>Preparing your answer<span class="dots"> <i></i><i></i><i></i></span></span></div>';$('#msgs').appendChild(d);setLotus();$('#msgs').scrollTop=1e6}
 }
 function send(text,regen){
   if(busy||!text)return;
@@ -611,7 +620,7 @@ var EX={
 function csv(k){var e=EX[k],rows=[e.h].concat(e.r());return '﻿'+rows.map(function(r){return r.map(function(c){c=String(c==null?'':c);if(/^([=@]|[+-][^0-9 ])/.test(c))c="'"+c;return '"'+c.replace(/"/g,'""')+'"'}).join(',')}).join('\r\n')}
 function dl(name,blob){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
 function renderExport(){
-  $('#exGrid').innerHTML=Object.keys(EX).map(function(k){var e=EX[k];return '<div class="card" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:22px">'+e.t+'</h3><p class="sub" style="flex:1">'+e.d+' · '+e.r().length+' rows</p><button class="btn" data-ex="'+k+'">'+ICON('dl')+'Download CSV</button></div>'}).join('');
+  $('#exGrid').innerHTML=Object.keys(EX).map(function(k){var e=EX[k];return '<div class="card" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:19px">'+e.t+'</h3><p class="sub" style="flex:1">'+e.d+' · '+e.r().length+' rows</p><button class="btn" data-ex="'+k+'">'+ICON('dl')+'Download CSV</button></div>'}).join('');
   $$('[data-ex]').forEach(function(b){b.onclick=function(){dl('arvyx-'+b.dataset.ex+'.csv',new Blob([csv(b.dataset.ex)],{type:'text/csv'}))}});
 }
 // minimal ZIP (store, no compression)
@@ -632,23 +641,40 @@ $('#exAll').onclick=function(){dl('arvyx-export.zip',zip(Object.keys(EX).map(fun
 
 /* ================= SETTINGS ================= */
 function renderSettings(){
-  var s=store('arvyx_studio')||{};$('#sName').value=s.name||'';$('#sCity').value=s.city||'';$('#sUrl').value=store('arvi_url')||'';applyMode();ping(false);
+  var s=store('arvyx_studio')||{};$('#sName').value=s.name||'';$('#sCity').value=s.city||'';applyMode();ping(false);
 }
 function saveStudio(){store('arvyx_studio',{name:$('#sName').value,city:$('#sCity').value});var e=$('#sSaved');e.classList.add('show');clearTimeout(saveStudio.t);saveStudio.t=setTimeout(function(){e.classList.remove('show')},1500)}
 $('#sName').oninput=saveStudio;$('#sCity').oninput=saveStudio;
-$('#saveUrl').onclick=function(){store('arvi_url',$('#sUrl').value.trim());toast('Address saved');ping(true)};
 $('#resetData').onclick=function(){if(confirm('Reset all sample data on this device?')){D=seed();save();toast('Reset done')}};
 $('#testAi').onclick=function(){ping(true)};
 function ping(real){
   var led=$('#led'),tx=$('#ledTxt');
-  if(!arviUrl()){led.className='led';tx.textContent='Demo mode — not connected';return}
-  if(!real){led.className='led';tx.textContent='Connected address saved';return}
-  tx.textContent='Testing…';
+  if(!real){led.className='led';tx.textContent='Tap Test ARVI to check';return}
+  tx.textContent='Testing…';led.className='led';
   callARVI('Reply with one word: ready','English',[],undefined).then(function(){led.className='led ok';tx.textContent='ARVI is online ✓'}).catch(function(){led.className='led bad';tx.textContent='ARVI could not be reached'});
 }
 
+/* ================= QUOTES (new one on every reload) ================= */
+var QUOTES=[
+ ['Small steps on the mat create big changes in life.',''],
+ ['Yoga is the journey of the self, through the self, to the self.','Inspired by the Bhagavad Gita'],
+ ['Breathe in calm, breathe out everything you cannot control.',''],
+ ['Your practice does not need to be perfect. It needs to be yours.',''],
+ ['A steady breath is the quietest teacher.',''],
+ ['Come as you are. The mat meets you where you stand.',''],
+ ['Strength grows softly, one mindful breath at a time.',''],
+ ['Stillness is not the absence of movement, but the presence of peace.',''],
+ ['Teach with patience, practise with kindness.',''],
+ ['Every class begins with a single, honest breath.','']];
+function showQuote(){
+  var last=store('arvyx_q'),i;
+  do{i=Math.floor(Math.random()*QUOTES.length)}while(i===last&&QUOTES.length>1);
+  store('arvyx_q',i);
+  $('#qText').textContent='\u201c'+QUOTES[i][0]+'\u201d';$('#qBy').textContent=QUOTES[i][1];$('#qBy').style.display=QUOTES[i][1]?'':'none';
+}
+
 /* ================= START ================= */
-applyMode();greeting();route();
+applyMode();greeting();showQuote();route();
 setInterval(function(){applyMode();greeting()},600000);
 })();
 </script>
