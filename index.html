@@ -1,202 +1,656 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#16473a">
 <title>ARVYX — Intelligence in Harmony</title>
-<meta name="description" content="ARVI by ARVYX — a calm, intelligent assistant for yoga studios.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#16473A">
+<meta name="description" content="ARVYX Yoga Intelligence — ARVI helps your studio with students, classes and follow-ups.">
+<meta property="og:title" content="ARVYX — Intelligence in Harmony">
+<meta property="og:description" content="Meet ARVI, the calm AI assistant for yoga studios.">
+<meta property="og:image" content="hero_lotus.png">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F6EFDC;--card:#fffaf0;--ink:#1F2B27;--green:#16473A;--mint:#e3eee5;--line:#e7ddc4;--muted:#66736a;--gold:#C9A24B;--aqua:#2DD4CF;--night:#080d0c}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px Inter,system-ui,sans-serif;overflow-x:hidden}h1,h2,h3,.title,.brand{font-family:"Cormorant Garamond",Georgia,serif} .splash{position:fixed;inset:0;z-index:100;background:#050908;color:#f7f1df;display:grid;place-items:center;transition:opacity 1.1s ease,visibility 1.1s ease}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}.splash-inner{text-align:center;padding:24px}.lotus{width:min(44vw,190px);height:auto;overflow:visible}.lotus path,.lotus circle{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 4.8s ease forwards;stroke-linecap:round;stroke-linejoin:round}.lotus circle{animation-delay:1.5s}.splash-word{font:26px Georgia,serif;letter-spacing:.42em;margin:20px 0 7px 10px}.splash-tag{font-size:11px;letter-spacing:.15em;color:#c9a74e}.splash-glow{filter:drop-shadow(0 0 8px #2dd4cf66)}@keyframes draw{to{stroke-dashoffset:0}}.thinking-lotus{display:inline-block;width:36px;height:28px;object-fit:contain;vertical-align:middle;margin-right:9px;animation:lotusPulse 2.8s ease-in-out infinite;filter:drop-shadow(0 0 6px #2dd4cfaa)}@keyframes lotusPulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}@media(prefers-reduced-motion:reduce){.lotus path,.lotus circle{animation:none;stroke-dashoffset:0}.splash{transition:none}}button,input{font:inherit}button{border:0;border-radius:11px;padding:10px 13px;background:var(--green);color:white;font-weight:700;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.alt{background:var(--mint);color:var(--green)}.app{max-width:1100px;margin:auto;display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100vh}.side{background:var(--green);color:#f7f1df;border-right:1px solid #123b32;padding:18px 12px;position:sticky;top:0;height:100vh}.brand{font-weight:500;font-size:24px;letter-spacing:6px;padding:8px 10px 24px;text-align:center;color:#f7f1df}.brand span{color:#d4b45b}.brand .small{font-family:Inter,system-ui,sans-serif;color:#d8cda8;letter-spacing:2px;font-size:9px;font-weight:500}.brand-mark{display:block;width:48px;height:48px;margin:0 auto 9px}.nav{display:block;width:100%;text-align:left;background:transparent;color:#e0e8df;margin:3px 0}.nav.active{background:#f6efdc;color:#16473a;border:1px solid #c9a24b}.nav:hover{background:#e8e2ce;color:#16473a}.side small{position:absolute;bottom:18px;left:16px;right:16px;color:#d4dfd6;font-size:11px}main{padding:23px;min-width:0}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.eyebrow{font-size:11px;letter-spacing:1.2px;color:var(--green);font-weight:900}.title{font-size:31px;font-weight:600;letter-spacing:-.3px;margin:4px 0}.muted,.small{color:var(--muted)}.small{font-size:12px}.notice{background:#fff5dc;border:1px solid #f0dfad;color:#785e24;border-radius:12px;padding:11px;margin-bottom:16px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:12px;min-width:0}.label{font-size:12px;color:var(--muted);font-weight:700}.num{font-size:28px;font-weight:900;margin:7px 0}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:21px 0 11px}.head h2{font-size:17px;margin:0}.row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}.avatar{background:var(--mint);color:var(--green);border-radius:12px;width:38px;height:38px;display:grid;place-items:center;font-weight:800;flex-shrink:0}.grow{flex:1;min-width:0}.name{font-weight:750}.pill{font-size:11px;font-weight:750;background:var(--mint);color:var(--green);border-radius:99px;padding:4px 8px;white-space:nowrap}.gold{background:var(--gold);color:#785719}.search,input{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;margin:7px 0 12px;color:var(--ink)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.chat{background:#fffaf0;border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0;min-height:280px;max-height:55vh;overflow-y:auto;scroll-behavior:smooth}.bubble{background:white;border:1px solid var(--line);border-radius:16px;padding:13px 14px;margin:10px 0;max-width:92%;overflow-wrap:anywhere;line-height:1.65;white-space:pre-wrap}.me{background:var(--mint);margin-left:auto;border-color:#d1e2d5;max-width:88%}.bubble .small{display:block;margin-top:8px}.chat-form{display:flex;align-items:center;gap:8px;margin-top:10px}.chat-form input{flex:1;min-width:0;margin:0;padding:13px 14px;border-radius:14px}.chat-form button{flex-shrink:0}.status{font-size:12px;color:var(--muted);margin:9px 2px 0}.mobile{display:none}
-@media(max-width:700px){.app{display:block}.side{display:none}main{padding:15px 12px 100px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.title{font-size:24px}.mobile{display:flex;position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--line);justify-content:space-around;padding:7px 2px calc(7px + env(safe-area-inset-bottom));z-index:5}.mobile button{background:transparent;color:#526158;font-size:10px;padding:7px 4px}.mobile button.active{background:var(--mint);color:var(--green)}.mobile b{display:block;font-size:17px}.chat{max-height:48vh}.card{padding:12px}.pill{white-space:normal}}
-
-/* ARVI professional assistant layout */
-.assistant-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:16px;align-items:start}
-.assistant-main{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
-.assistant-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:2px 2px 14px;border-bottom:1px solid var(--line)}
-.assistant-head .eyebrow{font-size:10px;letter-spacing:1.4px}
-.assistant-chat{background:transparent;border:0;border-radius:0;padding:14px 4px;min-height:300px;max-height:52vh;overflow-y:auto;scroll-behavior:smooth}
-.assistant-chat .bubble{max-width:min(88%,650px);box-shadow:0 1px 2px #20342e08}
-.assistant-chat .bubble:not(.me){margin-right:auto;background:#fffdf8}
-.assistant-chat .me{background:#e3eee5}
-.composer-wrap{border:1px solid #d9d6c8;border-radius:28px;background:white;display:flex;align-items:center;gap:8px;padding:5px 6px 5px 16px;box-shadow:0 3px 14px #20342e08}
-.composer-wrap input{border:0!important;outline:none;box-shadow:none!important;background:transparent!important;margin:0!important;padding:11px 0!important;min-width:0;flex:1}
-.composer-wrap input:focus{outline:none}
-.send-round{width:42px;height:42px;min-width:42px;border-radius:50%;padding:0;display:grid;place-items:center;background:var(--green);color:white;font-size:19px;line-height:1}
-.send-round svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.popular-panel{background:#fffaf0;border:1px solid var(--line);border-radius:18px;padding:16px;position:sticky;top:16px}
-.popular-panel h3{font-size:17px;margin:0 0 4px}
-.prompt-intro{font-size:11px;color:var(--muted);margin-bottom:13px}
-.prompt-item{width:100%;display:flex;align-items:center;gap:10px;text-align:left;background:#fff;border:1px solid #eee6d4;color:var(--ink);padding:11px 10px;border-radius:12px;margin:8px 0;font-weight:600;font-size:12px;line-height:1.4}
-.prompt-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--mint);color:var(--green);flex-shrink:0;font-size:15px}
-.prompt-item:hover{border-color:var(--gold);background:#fffdf8}
-.assistant-note{font-size:11px;color:var(--muted);margin:10px 4px 0;line-height:1.5}
-.assistant-welcome{max-width:100%!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:10px 4px!important;color:var(--ink)}
-@media(max-width:800px){.assistant-layout{grid-template-columns:minmax(0,1fr)}.popular-panel{position:static;order:2}.assistant-chat{max-height:48vh;min-height:220px}.popular-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.prompt-item{margin:0;height:100%;align-items:flex-start}.assistant-main{padding:13px}.assistant-head{align-items:flex-start}.assistant-chat .bubble{max-width:94%}}
-@media(max-width:420px){.popular-list{grid-template-columns:1fr}.assistant-head .small{max-width:220px}.send-round{width:40px;height:40px;min-width:40px}}
-/* Responsive refinements and the ARVI home experience */
-html,body{width:100%;max-width:100%;overflow-x:hidden}.app,main,#content,.assistant-layout,.assistant-main,.popular-panel{min-width:0;max-width:100%}
-@media(max-width:900px){.assistant-layout{grid-template-columns:minmax(0,1fr)}.popular-panel{position:static}.popular-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){main{padding:14px 12px 94px}.top{align-items:flex-start}.top .title{font-size:28px}.top #workspace{font-size:12px;padding:9px}.popular-list{grid-template-columns:1fr}.assistant-head{flex-wrap:wrap}.assistant-head .alt{white-space:nowrap}.assistant-chat{min-height:190px;max-height:42vh}.composer-wrap{padding-left:13px}.assistant-note{font-size:10px}.home-hero{padding:22px 12px 16px}.home-lotus{width:112px}.home-topline{align-items:flex-start}.home-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.home-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:0 0 16px}.home-greeting{display:flex;align-items:flex-start;gap:9px}.greeting-icon{font-family:Inter,sans-serif;color:var(--gold);font-size:25px;line-height:1.1}.home-ready{font-size:11px;color:var(--green);background:#e5efe5;border-radius:99px;padding:7px 10px;white-space:nowrap}.home-hero{background:radial-gradient(ellipse at 50% 40%,#fff9df 0%,#f7f1df 57%,#f3ecd7 100%);border:1px solid #eee4c9;border-radius:20px;text-align:center;padding:24px 18px 20px;margin-bottom:14px}.home-lotus{width:132px;max-width:40%;height:auto;display:block;margin:0 auto 3px;filter:drop-shadow(0 6px 12px #cba64e22)}.home-wordmark{font-family:"Cormorant Garamond",Georgia,serif;font-size:38px;letter-spacing:.34em;margin-left:.34em;color:var(--green);font-weight:500}.home-tagline{font-size:11px;letter-spacing:.08em;color:var(--muted);margin-top:0}.home-namaste{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;margin:14px 0 2px}.home-question{font-family:"Cormorant Garamond",Georgia,serif;font-size:17px;color:#59685c}.home-topic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}.home-topic{background:#e4eee3;border:1px solid #d7e5d7;border-radius:14px;padding:13px 11px;min-height:112px;color:var(--green);text-align:left;white-space:normal}.home-topic:nth-child(2){background:#e0efec;border-color:#d3e6e1}.home-topic:nth-child(3){background:#f0e7cf;border-color:#e8dcc0}.home-topic:nth-child(4){background:#e7edda;border-color:#dbe4cb}.home-topic strong{display:block;font-size:12px;margin:7px 0 4px}.home-topic span{display:block;font-size:11px;line-height:1.45;font-weight:400}.home-topic .topic-icon{font-size:18px}.home-quote{text-align:center;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;color:#66766a;padding:13px 4px 0;font-size:16px}.home-chatbar{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid #e4dcc9;border-radius:99px;padding:5px 6px 5px 15px;margin-top:15px}.home-chatbar input{border:0;background:transparent;margin:0;min-width:0;flex:1;outline:none;padding:10px 0}.home-chatbar button{width:40px;height:40px;border-radius:50%;padding:0;display:grid;place-items:center}.home-chatbar button svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
-@media(max-width:700px){.home-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-topic{min-height:100px}.home-hero{padding:20px 12px}.home-lotus{width:110px}.home-wordmark{font-size:32px}}
-
-
-
-/* Home page: match the supplied ARVI Home reference */
-:root{--bg:#F6EFDC;--green:#16473A;--gold:#C9A24B;--aqua:#2DD4CF;--ink:#1F2B27;}
-.app{max-width:1500px;grid-template-columns:170px minmax(0,1fr);background:var(--bg)}
-.side{padding:18px 10px}.brand{font-size:23px;letter-spacing:7px;font-weight:400;padding:8px 5px 18px}.brand .small{font-size:8px;letter-spacing:1.7px}.nav{font-weight:500;font-size:12px;padding:9px 8px;border-radius:8px}.nav.active,.nav:hover{background:var(--gold);color:#fffaf0}.side small{font-size:10px;line-height:1.55;text-align:center;bottom:16px}
-main{padding:18px 16px;min-width:0}.top{margin-bottom:16px}.top .title{font-weight:500}.top #workspace{background:#e4eee3;color:var(--green);font-weight:500}
-#content.home-layout{display:grid;grid-template-columns:minmax(0,1fr) 215px;gap:12px;align-items:stretch}
-.home-center{min-width:0;display:flex;flex-direction:column}
-.home-topline{margin:0 0 14px;padding:2px 3px;align-items:center}.home-greeting{gap:8px}.greeting-icon{font-size:23px;color:var(--gold)}.home-topline .eyebrow{font-family:"Cormorant Garamond",Georgia,serif;font-size:17px;font-weight:600;letter-spacing:0;color:var(--ink)}.home-topline .small{font-size:10px;letter-spacing:.02em}.home-ready{background:transparent;padding:5px 2px;font-size:10px}.balance-tag{font-size:10px;color:var(--green);white-space:nowrap;display:flex;align-items:center;gap:5px}.home-avatar{width:22px;height:22px;border-radius:50%;display:inline-grid;place-items:center;background:var(--green);color:#fff;font-size:9px;margin-left:4px}
-.home-hero{background:radial-gradient(ellipse at 50% 35%,#fffdf0 0%,#f8f1dd 56%,#f3ecd7 100%);border:0;border-radius:0;padding:15px 14px 12px;margin:0;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px}
-.home-lotus{width:155px;max-width:45%;margin:0 auto 3px;filter:drop-shadow(0 0 12px #5e9e7e55) drop-shadow(0 6px 16px #c9a24b35)}
-.home-wordmark{font-size:35px;letter-spacing:.36em;margin-left:.36em;font-weight:500}.home-tagline{font-size:10px;letter-spacing:.08em}.home-namaste{font-size:22px;margin:12px 0 1px}.home-question{font-size:16px}
-.home-topic-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0 10px}.home-topic{min-height:94px;padding:10px 9px;border-radius:12px;font-weight:400}.home-topic strong{font-size:11px;font-weight:600}.home-topic span{font-size:10px;line-height:1.4}.home-topic .topic-icon{font-size:16px}
-.home-chatbar{margin:0 0 1px;border-radius:30px;padding:4px 5px 4px 14px;min-height:43px;box-shadow:0 2px 8px #20342e08}.home-chatbar input{font-size:11px;padding:8px 0;margin:0;border:0;background:transparent;min-width:0}.home-chatbar button{width:34px;height:34px;min-width:34px;padding:0;border-radius:50%;display:grid;place-items:center;background:var(--green)}.home-chatbar button svg{width:17px;height:17px;stroke:white;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.home-popular{background:#fbf6e8;border:0;border-radius:0;padding:5px 2px 8px;display:flex;flex-direction:column;min-width:0}.home-popular h3{font-family:Inter,sans-serif;font-size:12px;font-weight:600;margin:4px 0 3px}.home-popular .prompt-intro{font-size:10px;margin-bottom:8px}.home-popular .popular-list{display:flex;flex-direction:column;gap:6px}.home-popular .prompt-item{padding:7px 7px;border-radius:10px;gap:7px;margin:0;font-size:9px;font-weight:500;line-height:1.35;min-height:42px;background:#fffdf8;border-color:#eee7d6}.home-popular .prompt-icon{width:25px;height:25px;font-size:12px}.home-quote{margin-top:auto;padding:20px 8px 4px;font-size:14px;line-height:1.4}
-/* The welcome page itself is the product experience; keep other studio sections available. */
-body.dashboard-mode main>.top{display:none}body.dashboard-mode #content.home-layout{margin-top:0}
-/* Slow, restrained aqua lotus pulse while ARVI is thinking */
-.thinking-lotus{width:31px;height:27px;animation:lotusPulse 3.6s ease-in-out infinite;filter:drop-shadow(0 0 5px #2DD4CF99)}
-@keyframes lotusPulse{0%,100%{opacity:.72;transform:scale(.97);filter:drop-shadow(0 0 3px #2DD4CF66)}50%{opacity:1;transform:scale(1.025);filter:drop-shadow(0 0 8px #2DD4CFcc)}}
-@media(max-width:900px){.app{display:block}.side{display:none}main{padding:14px 12px 88px}#content.home-layout{grid-template-columns:minmax(0,1fr);gap:12px}.home-popular{padding:12px;background:#fbf6e8;border:1px solid var(--line);border-radius:15px}.home-popular .popular-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.home-popular .prompt-item{font-size:10px;min-height:48px}.home-popular .prompt-icon{width:28px;height:28px}.home-quote{padding:10px 4px 2px}.home-hero{min-height:300px}.home-lotus{width:135px}.home-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-topic{min-height:94px}}
-@media(max-width:430px){.home-topline{gap:6px}.home-ready{font-size:9px}.balance-tag{display:none}.home-popular .popular-list{grid-template-columns:1fr}.home-hero{min-height:270px;padding:14px 8px 12px}.home-lotus{width:120px}.home-wordmark{font-size:32px}.home-topic-grid{gap:7px}.home-topic{padding:10px 8px}}
-
-
-/* Full-screen ARVI thinking state: dark neon lotus from the user's reference */
-#arviThinking{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;background:#000;color:#e8fffd;opacity:0;transition:opacity .28s ease;}
-#arviThinking.active{display:flex;opacity:1}
-#arviThinking .neon-lotus{width:min(72vw,390px);height:auto;overflow:visible;filter:drop-shadow(0 0 3px #2dd4cf88) drop-shadow(0 0 15px #2dd4cf22)}
-#arviThinking .neon-lotus path{fill:none;stroke:#2dd4cf;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:520;stroke-dashoffset:520;animation:neonDraw 2.8s ease-in-out infinite alternate;}
-#arviThinking .neon-lotus .inner-line{stroke-dasharray:2 7;stroke-dashoffset:0;animation:neonPulse 1.8s ease-in-out infinite}
-#arviThinking .neon-lotus circle{fill:#2dd4cf;filter:drop-shadow(0 0 5px #2dd4cf);animation:dotPulse 1.5s ease-in-out infinite alternate}
-#arviThinking .thinking-label{margin-top:26px;font:500 12px Inter,system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#7be9e4;opacity:.8}
-@keyframes neonDraw{0%{stroke-dashoffset:520;opacity:.35}55%,100%{stroke-dashoffset:0;opacity:1}}
-@keyframes neonPulse{0%,100%{opacity:.45}50%{opacity:1}}
-@keyframes dotPulse{from{opacity:.45}to{opacity:1}}
-@media(prefers-reduced-motion:reduce){#arviThinking .neon-lotus path,#arviThinking .neon-lotus .inner-line,#arviThinking .neon-lotus circle{animation:none;stroke-dashoffset:0}}
-
-
-/* ARVYX refinement: assistant empty state, compact reply mark, soft background and safer thinking overlay */
-body{background:radial-gradient(ellipse at 72% 0%,#fff9e9 0%,var(--bg) 52%,#f1e8d0 100%)}
-.side{display:flex;flex-direction:column;align-items:stretch}.side .brand{flex:0 0 auto}.side .side-new{width:100%;margin:0 0 15px;background:var(--gold);color:#27372e;border-radius:12px;padding:12px 10px;text-align:center}.side .side-footer{position:static;margin-top:auto;padding:24px 5px 4px;color:#d4dfd6;font-size:11px;line-height:1.6}
-.assistant-chat{min-height:300px}.assistant-empty{text-align:center;padding:22px 8px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px}.assistant-empty .welcome-lotus{width:min(34vw,150px);height:auto;filter:drop-shadow(0 4px 12px #c9a24b35);margin-bottom:8px}.assistant-empty h2{font:500 clamp(22px,3vw,29px) 'Cormorant Garamond',Georgia,serif;margin:8px 0;color:var(--green)}.assistant-empty p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
-.assistant-reply-row{display:flex;align-items:flex-start;gap:9px;margin:12px 0}.assistant-reply-row .bubble{margin:0;flex:1;min-width:0}.reply-lotus{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:#e7efe4;border:1px solid #d6e3d3;padding:4px;display:grid;place-items:center;margin-top:7px}.reply-lotus svg{width:22px;height:22px;display:block}.assistant-chat .bubble:not(.me){margin-right:0}
-#arviThinking{pointer-events:none}#arviThinking.active{pointer-events:auto}.assistant-note{min-height:15px}.nav svg{width:17px;height:17px;vertical-align:middle;margin-right:8px}
-@media(max-width:700px){.assistant-empty{min-height:225px;padding:16px 6px 22px}.assistant-empty .welcome-lotus{width:112px}.assistant-chat{min-height:190px}.side .side-footer{display:none}}
-
-
-/* ARVYX mobile-first refinements */
-.muted,.small,.prompt-intro,.assistant-note,.status{color:#53645a}
-.nav{border:1px solid transparent}.new-conversation,.side .new-conversation{font-size:12px;white-space:nowrap;padding:9px 8px;letter-spacing:-.15px}
-.home-hero{background:radial-gradient(ellipse at 50% 42%,rgba(255,250,226,.82) 0%,rgba(248,241,221,.42) 52%,rgba(243,236,215,0) 78%);border:0;box-shadow:none;position:relative;overflow:hidden}
-.home-hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:48px;pointer-events:none;opacity:.14;background:radial-gradient(ellipse at 20% 100%,#5e9e7e 0 1px,transparent 2px),radial-gradient(ellipse at 80% 100%,#5e9e7e 0 1px,transparent 2px)}
-.home-quote,.home-popular .home-quote{font-family:Inter,system-ui,sans-serif;font-style:normal;font-weight:600;color:#344c40}
-.home-quote:before{content:"";display:block;width:44px;height:1px;background:#c9a24b;margin:0 auto 8px}
-.home-quote:after{content:"";display:block;width:25px;height:18px;margin:0 auto 4px;background:#c9a24b;opacity:.8;clip-path:polygon(50% 0,62% 35%,100% 55%,65% 65%,50% 100%,35% 65%,0 55%,38% 35%)}
-.popular-panel h3,.home-popular h3{font-family:Inter,system-ui,sans-serif;font-weight:600}
-.assistant-head{position:relative}.assistant-head:after{content:"";position:absolute;right:2px;top:0;width:36px;height:30px;opacity:.9;background-size:contain;background-repeat:no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 170'%3E%3Cg fill='none' stroke='%232dd4cf' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M110 145C70 118 73 75 110 20C147 75 150 118 110 145Z'/%3E%3Cpath d='M110 145C42 141 22 100 25 58C61 78 88 99 110 145Z'/%3E%3Cpath d='M110 145C178 141 198 100 195 58C159 78 132 99 110 145Z'/%3E%3Cpath d='M110 145C59 159 26 140 10 112C51 118 78 127 110 145Z'/%3E%3Cpath d='M110 145C161 159 194 140 210 112C169 118 142 127 110 145Z'/%3E%3C/g%3E%3C/svg%3E")}.assistant-head>div{padding-right:38px}
-.assistant-empty .welcome-lotus{filter:drop-shadow(0 0 12px #2dd4cf55)}
-@media(max-width:900px){.app{display:block;max-width:100%;min-height:100vh}.side{display:none}main{width:100%;min-width:0;padding:14px 12px calc(100px + env(safe-area-inset-bottom))}#content{min-width:0}.assistant-layout{display:flex;flex-direction:column;gap:12px;min-width:0}.assistant-main,.popular-panel{width:100%;min-width:0}.popular-panel{order:2;position:static}.popular-list{grid-template-columns:repeat(2,minmax(0,1fr))}.assistant-chat{max-height:42vh;min-height:180px}.home-layout{display:block!important}.home-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-popular{margin-top:12px}}
-@media(max-width:560px){body{font-size:15px}main{padding-left:12px;padding-right:12px}.title,.top .title{font-size:27px;line-height:1.12}.assistant-head .small{font-size:13px;line-height:1.45;max-width:100%}.assistant-head .alt{font-size:12px;padding:9px 12px}.assistant-chat{min-height:170px;max-height:40vh;padding:10px}.bubble{font-size:14px;padding:11px 12px}.composer-wrap input{font-size:15px}.popular-panel{padding:14px}.popular-list{grid-template-columns:1fr}.prompt-item{min-height:56px;font-size:14px}.home-hero{min-height:300px;padding:16px 10px}.home-lotus{width:clamp(118px,36vw,160px);max-width:60%}.home-wordmark{font-size:34px}.home-question{font-size:18px}.home-topic{padding:12px 10px}.home-topic strong{font-size:13px}.home-topic span{font-size:12px}.home-chatbar input{font-size:14px}}
-
+:root{
+  --green:#16473A;--cream:#F6EFDC;--gold:#C9A24B;--leaf:#5E9E7E;--aqua:#2DD4CF;--night:#0A0F0E;--ink:#1F2B27;
+  --teal:#0F9D98;--warm:#F3E6BE;--help:#4F5F57;--amber:#B5651D;
+  --bg:#F6EFDC;--card:#FFFBF0;--line:rgba(22,71,58,.16);--text:#1F2B27;--muted:#4F5F57;--accent:#16473A;--onaccent:#F6EFDC;
+  --glow:radial-gradient(60% 50% at 50% 30%,rgba(94,158,126,.22),transparent 70%);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --safe-b:env(safe-area-inset-bottom,0px);--safe-t:env(safe-area-inset-top,0px);
+}
+:root[data-mode="dark"]{
+  --bg:#0A0F0E;--card:#121B18;--line:rgba(45,212,207,.18);--text:#E8EFEC;--muted:#A9B8B3;--accent:#2DD4CF;--onaccent:#0A0F0E;
+  --warm:#17231F;--help:#A9B8B3;
+  --glow:radial-gradient(60% 50% at 50% 30%,rgba(45,212,207,.14),transparent 70%);
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:var(--sans);font-size:15px;line-height:1.5;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15}
+.app{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100dvh}
+/* sidebar */
+.side{background:var(--green);color:var(--cream);padding:24px 16px;display:flex;flex-direction:column;gap:18px;position:sticky;top:0;height:100dvh}
+.brand{display:flex;align-items:center;gap:12px;padding:0 8px}
+.brand img{width:52px;height:auto}
+.brand b{font-family:var(--serif);font-size:26px;letter-spacing:.2em;font-weight:600;display:block;line-height:1}
+.brand small{font-size:10px;letter-spacing:.18em;color:var(--gold)}
+.askbtn{background:var(--gold);color:#1a2a22;border-radius:999px;padding:12px 16px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+.nav{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;color:#E8DFC6;text-decoration:none;font-weight:500}
+.nav a:hover{background:rgba(246,239,220,.08)}
+.nav a.on{background:rgba(246,239,220,.14);color:#fff;box-shadow:inset 3px 0 0 var(--gold)}
+.side .foot{margin-top:auto;font-size:12.5px;color:#cfd8cd;padding:0 8px;font-family:var(--serif);font-style:italic;font-size:15px}
+/* main */
+main{min-width:0;background:var(--bg);position:relative}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 32px 48px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.wrap.dash{grid-template-columns:minmax(0,1fr) 330px;align-items:start}
+.page{display:none}.page.on{display:block}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+.top h1{font-size:34px;color:var(--accent)}
+.top p{color:var(--muted);font-size:14px}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.icobtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}
+/* hero */
+.greet{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px}
+.greet .i{color:var(--gold)}
+.hero{text-align:center;padding:8px 0 4px;position:relative}
+.hero:before{content:"";position:absolute;inset:-10px 0 auto;height:100%;background:var(--glow);pointer-events:none}
+.hero .lotus{width:min(300px,60vw);height:auto;position:relative;animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.03)}}
+@media(prefers-reduced-motion:reduce){.hero .lotus,.dots i{animation:none!important}}
+.wordmark{font-family:var(--serif);font-size:48px;letter-spacing:.3em;padding-left:.3em;color:var(--accent);font-weight:600;line-height:1}
+.hero h2{font-size:28px;margin-top:10px}
+.hero .tag{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.ready{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.ready:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 4px rgba(94,158,126,.2)}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none}
+.avatar img{width:22px}
+.today{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.today a{flex:1;min-width:130px;background:var(--warm);border-radius:14px;padding:10px 14px;text-decoration:none;color:var(--text);display:block}
+.today b{font-size:22px;font-family:var(--serif);color:var(--accent);display:block;line-height:1.1}
+.today span{font-size:12.5px;color:var(--help)}
+.topics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 12px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+.topic:hover{border-color:var(--gold)}
+.topic .i{width:26px;height:26px;color:var(--gold)}
+.topic b{font-size:14px}.topic span{font-size:12px;color:var(--help)}
+.ask{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 18px}
+.ask input{flex:1;min-width:0;border:0;background:none;outline:0;padding:8px 0;font-size:16px}
+.send{width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--onaccent);display:grid;place-items:center;flex:none}
+.quote{text-align:center;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--accent);margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.quote img{width:28px;opacity:.9}
+/* prompts */
+.prompts h3{font-size:22px;margin-bottom:10px;color:var(--accent)}
+.prompt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px;border-radius:14px}
+.prompt:hover{background:rgba(94,158,126,.12)}
+.prompt .ic{width:44px;height:44px;border-radius:50%;background:rgba(201,162,75,.18);color:var(--gold);display:grid;place-items:center;flex:none}
+.prompt b{display:block;font-size:14px}.prompt span{font-size:12.5px;color:var(--help)}
+/* lists */
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:7px 14px;border-radius:999px;font-size:13.5px;flex:none}
+.chip.on{background:var(--accent);color:var(--onaccent);border-color:var(--accent)}
+.chip em{font-style:normal;opacity:.7;margin-left:4px}
+.row{display:flex;gap:12px;padding:14px;border-bottom:1px solid var(--line);align-items:flex-start}
+.row:last-child{border:0}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:7px;flex:none}
+.dot.read{background:transparent;border:1px solid var(--line)}
+.grow{flex:1;min-width:0}
+.name{font-weight:600}.sub{color:var(--muted);font-size:13.5px}
+.tag{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:999px;margin:4px 6px 0 0;font-weight:500}
+.t-cat{background:rgba(94,158,126,.18);color:var(--accent)}
+.t-st{border:1px solid var(--line);color:var(--muted)}
+.t-urgent{background:rgba(181,101,29,.16);color:var(--amber)}
+.t-done{background:rgba(94,158,126,.2);color:var(--accent)}
+.btn{background:var(--accent);color:var(--onaccent);border-radius:999px;padding:9px 16px;font-weight:600;font-size:13.5px;display:inline-flex;gap:8px;align-items:center;justify-content:center;white-space:nowrap}
+.btn.ghost{background:none;color:var(--accent);border:1px solid var(--line)}
+.btn.sm{padding:6px 12px;font-size:12.5px}
+.summary{color:var(--muted);margin-bottom:12px;font-size:14px}
+table{width:100%;border-collapse:collapse}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 12px;font-weight:500}
+td{padding:12px;border-top:1px solid var(--line)}
+tr.click{cursor:pointer}tr.click:hover td{background:rgba(94,158,126,.08)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.cap{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
+.cap i{display:block;height:100%;background:var(--leaf)}
+.grp{font-family:var(--serif);font-size:20px;color:var(--accent);margin:18px 0 6px}
+.chk{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--leaf);flex:none;margin-top:2px;display:grid;place-items:center;color:#fff}
+.chk.on{background:var(--leaf)}
+.done .name{text-decoration:line-through;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:13px;font-weight:600}
+.field input,.field select,.field textarea{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;font-size:16px;width:100%}
+.help{font-size:12.5px;color:var(--help)}
+.saved{color:var(--leaf);font-size:13px;opacity:0;transition:.3s}.saved.show{opacity:1}
+details{border:1px solid var(--line);border-radius:16px;padding:12px 16px;background:var(--card)}
+summary{cursor:pointer;font-weight:600}
+ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.online{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.led{width:10px;height:10px;border-radius:50%;background:#bbb}.led.ok{background:var(--leaf)}.led.bad{background:var(--amber)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{padding:7px 14px;font-size:13px}.seg button.on{background:var(--accent);color:var(--onaccent)}
+/* chat */
+.chatpage{display:flex;flex-direction:column;height:100dvh}
+.chathead{padding:18px 32px 8px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.chathead h1{font-size:30px;color:var(--accent)}
+.msgs{flex:1;overflow-y:auto;padding:10px 32px;display:flex;flex-direction:column;gap:14px;overscroll-behavior:contain}
+.empty{margin:auto;text-align:center;max-width:520px}
+.empty img{width:170px;animation:breathe 6s ease-in-out infinite}
+.empty h2{font-size:26px;margin:6px 0 12px}
+.empty .chips{flex-wrap:wrap;justify-content:center;overflow:visible}
+.m{display:flex;gap:10px;max-width:760px}
+.m.user{align-self:flex-end;flex-direction:row-reverse}
+.bub{padding:10px 14px;border-radius:18px;white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
+.m.user .bub{background:var(--green);color:var(--cream);border-bottom-right-radius:6px}
+:root[data-mode="dark"] .m.user .bub{background:#12403A}
+.m.bot .bub{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.acts button{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--accent);background:var(--bg)}
+.think{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.think img{width:38px;animation:breathe 2.4s ease-in-out infinite}
+.dots i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-right:3px;animation:bl 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes bl{50%{opacity:.2}}
+.note{font-size:12px;color:var(--help);text-align:center;padding:2px 12px}
+.composer{padding:8px 32px calc(12px + 0px);background:var(--bg);border-top:1px solid var(--line)}
+.composer .ask{border-radius:24px;padding:6px 6px 6px 14px;align-items:flex-end}
+.composer textarea{flex:1;border:0;background:none;outline:0;resize:none;max-height:120px;padding:9px 0;font-size:16px;line-height:1.4}
+.sel{border:0;background:none;font-size:13px;color:var(--muted);padding:0 2px;align-self:center}
+.mic.rec{background:var(--amber)}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;z-index:50}
+.sheet.on{display:flex}
+.sheet>div{background:var(--card);width:100%;border-radius:22px 22px 0 0;padding:16px 16px calc(20px + var(--safe-b));display:flex;flex-direction:column;gap:4px}
+.sheet a{display:flex;gap:14px;padding:14px 10px;align-items:center;color:var(--text);text-decoration:none;font-weight:500;border-radius:12px}
+.toast{position:fixed;left:50%;bottom:calc(90px + var(--safe-b));transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:13.5px;z-index:60;opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1}
+.bnav{display:none}
+.hide-m{}
+@media(max-width:1100px){.wrap.dash{grid-template-columns:minmax(0,1fr)}.prompts{display:none}}
+@media(max-width:860px){
+  .app{display:block}
+  .side{display:none}
+  .wrap{padding:calc(14px + var(--safe-t)) 16px calc(96px + var(--safe-b))}
+  .top h1{font-size:28px}
+  .topics{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .wordmark{font-size:38px}
+  .hero h2{font-size:24px}
+  .chatpage{height:100dvh;padding-bottom:calc(64px + var(--safe-b))}
+  .chathead{padding:calc(12px + var(--safe-t)) 16px 6px}
+  .msgs{padding:8px 16px}
+  .composer{padding:8px 12px 10px}
+  .bnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--green);padding:6px 4px calc(6px + var(--safe-b));border-top:1px solid rgba(201,162,75,.4)}
+  .bnav a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#cfd8cd;text-decoration:none;font-size:11px;padding:6px 0;border-radius:12px}
+  .bnav a.on{color:var(--gold)}
+  .bnav .i{width:22px;height:22px}
+  table.stu thead{display:none}
+  table.stu,table.stu tbody,table.stu tr,table.stu td{display:block}
+  table.stu tr{padding:12px 4px;border-top:1px solid var(--line)}
+  table.stu td{border:0;padding:1px 8px}
+  .hide-m{display:none}
+}
 </style>
 </head>
 <body>
-<div class="splash" id="brandSplash" aria-label="ARVYX loading"><div class="splash-inner"><div class="splash-glow"><svg class="lotus" viewBox="0 0 220 170" role="img" aria-label="Neon aqua lotus"><g fill="none" stroke="#2dd4cf" stroke-width="1.7"><path d="M110 145 C70 118 73 75 110 20 C147 75 150 118 110 145Z"/><path d="M110 145 C42 141 22 100 25 58 C61 78 88 99 110 145Z"/><path d="M110 145 C178 141 198 100 195 58 C159 78 132 99 110 145Z"/><path d="M110 145 C59 159 26 140 10 112 C51 118 78 127 110 145Z"/><path d="M110 145 C161 159 194 140 210 112 C169 118 142 127 110 145Z"/><path d="M110 145 C86 119 91 89 110 68 C129 89 134 119 110 145Z"/><path d="M110 82 L110 137" stroke-dasharray="2 6"/></g><g fill="#2dd4cf"><circle cx="110" cy="91" r="2.3"/><circle cx="110" cy="104" r="2.3"/><circle cx="110" cy="117" r="2.3"/><circle cx="110" cy="130" r="2.3"/></g></svg></div><div class="splash-word">ARVYX</div><div class="splash-tag">INTELLIGENCE IN HARMONY</div></div></div>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+<symbol id="inbox" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.5 3.2-5.5 6.5-5.5s5.9 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14.5c2.4.2 4 1.8 4.5 4.5"/></symbol>
+<symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+<symbol id="bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0112 0v6l1.5 2h-15z"/><path d="M10 21h4"/></symbol>
+<symbol id="spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+<symbol id="dl" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol>
+<symbol id="gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></symbol>
+<symbol id="more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></symbol>
+<symbol id="send" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+<symbol id="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></symbol>
+<symbol id="mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10h7"/></symbol>
+<symbol id="book" viewBox="0 0 24 24"><path d="M4 5.5C7 4 9.5 4.5 12 6.5c2.5-2 5-2.5 8-1v13c-3-1.5-5.5-1-8 1-2.5-2-5-2.5-8-1z"/><path d="M12 6.5V19.5"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+</defs></svg>
+
 <div class="app">
-<aside class="side"><div class="brand"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#d4b45b" stroke-width="2.4"><path d="M50 83C27 65 29 40 50 12C71 40 73 65 50 83Z"/><path d="M50 83C18 80 8 58 10 35C29 47 42 61 50 83Z"/><path d="M50 83C82 80 92 58 90 35C71 47 58 61 50 83Z"/><path d="M50 83C27 91 12 81 4 68C23 70 38 77 50 83Z"/><path d="M50 83C73 91 88 81 96 68C77 70 62 77 50 83Z"/><path d="M50 39V79" stroke-dasharray="2 5"/></g></svg>ARVYX<div class="small">YOGA INTELLIGENCE</div></div>
-<button class="side-new" type="button" onclick="go('assistant');clearChat()">＋ New conversation</button>
-<button class="nav active" data-page="dashboard"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Dashboard</button><button class="nav" data-page="inbox"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4c0 1-1 2-2 2C10 20 4 14 3 5c0-1 1-2 2-2Z"/></svg> Smart Inbox</button><button class="nav" data-page="students"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2Z"/></svg> Students</button><button class="nav" data-page="classes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 9h18"/></svg> Classes</button><button class="nav" data-page="followups"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Follow-ups</button><button class="nav" data-page="assistant"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2Z"/></svg> ARVI Assistant</button><button class="nav" data-page="exports"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12m-5-5 5 5 5-5M4 20h16"/></svg> Export Centre</button><button class="nav" data-page="settings"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="m19 13 2 1-2 4-2-1-2 1v2H9v-2l-2-1-2 1-2-4 2-1v-2l-2-1 2-4 2 1 2-1V4h6v2l2 1 2-1 2 4-2 1Z"/></svg> Settings</button><div class="side-footer">Better guidance. More students. A stronger yoga community.<br><span style="opacity:.75">Demo workspace · No live WhatsApp connection</span></div></aside>
-<main><div class="top"><div><div class="eyebrow" id="topEyebrow">ARVYX · INTELLIGENCE IN HARMONY</div><div class="title" id="title">Your studio at a glance</div><div class="muted" id="subtitle">A calmer way to manage your yoga community.</div></div><button class="alt" id="workspace">My Studio</button></div>
-<div id="content"></div></main></div>
-<div id="arviThinking" role="status" aria-live="polite" aria-label="ARVI is thinking"><svg class="neon-lotus" viewBox="0 0 360 250" aria-hidden="true"><g><path d="M180 224C120 184 118 116 180 24C242 116 240 184 180 224Z"/><path d="M180 224C94 220 52 166 54 96C106 121 151 163 180 224Z"/><path d="M180 224C266 220 308 166 306 96C254 121 209 163 180 224Z"/><path d="M180 224C113 243 64 218 34 180C91 183 139 202 180 224Z"/><path d="M180 224C247 243 296 218 326 180C269 183 221 202 180 224Z"/><path d="M180 224C145 186 149 142 180 111C211 142 215 186 180 224Z"/><path class="inner-line" d="M180 130V218"/></g><g><circle cx="180" cy="148" r="2.8"/><circle cx="180" cy="166" r="2.8"/><circle cx="180" cy="184" r="2.8"/><circle cx="180" cy="202" r="2.8"/></g></svg><div class="thinking-label">ARVI is thinking</div></div>
-<div class="mobile"><button class="active" data-page="dashboard"><b>◫</b>Home</button><button data-page="inbox"><b>☏</b>Inbox</button><button data-page="students"><b>♙</b>Students</button><button data-page="assistant"><b>✧</b>ARVI</button><button data-page="settings"><b>⚙</b>Settings</button></div>
+  <aside class="side">
+    <div class="brand"><img src="side_logo.png" alt="ARVYX lotus logo"><div><b>ARVYX</b><small>YOGA INTELLIGENCE</small></div></div>
+    <a class="askbtn" href="#arvi" style="text-decoration:none"><svg class="i"><use href="#spark"/></svg>Ask ARVI</a>
+    <nav class="nav" id="sidenav" aria-label="Main">
+      <a href="#home" data-p="home"><svg class="i"><use href="#home"/></svg>Dashboard</a>
+      <a href="#inbox" data-p="inbox"><svg class="i"><use href="#inbox"/></svg>Smart Inbox</a>
+      <a href="#students" data-p="students"><svg class="i"><use href="#users"/></svg>Students</a>
+      <a href="#classes" data-p="classes"><svg class="i"><use href="#cal"/></svg>Classes</a>
+      <a href="#followups" data-p="followups"><svg class="i"><use href="#bell"/></svg>Follow-ups</a>
+      <a href="#arvi" data-p="arvi"><svg class="i"><use href="#spark"/></svg>ARVI Assistant</a>
+      <a href="#export" data-p="export"><svg class="i"><use href="#dl"/></svg>Export Centre</a>
+      <a href="#settings" data-p="settings"><svg class="i"><use href="#gear"/></svg>Settings</a>
+    </nav>
+    <div class="foot">Better guidance. More students. A stronger yoga community.</div>
+  </aside>
+
+  <main id="main">
+    <!-- HOME -->
+    <section class="page" id="p-home"><div class="wrap dash">
+      <div>
+        <div class="top">
+          <div class="greet"><svg class="i" id="gIcon"><use href="#sun"/></svg><span><b id="gText">Good Morning</b> &nbsp;·&nbsp; Breathe · Teach · Inspire</span></div>
+          <button class="icobtn" id="modeBtn" aria-label="Toggle light and dark mode"><svg class="i"><use href="#moon"/></svg></button>
+        </div>
+        <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 16px">
+          <div class="avatar"><img src="hero_lotus.png" alt="ARVI"></div>
+          <div class="ready">ARVI is ready</div>
+        </div>
+        <div class="today" id="today"></div>
+        <div class="hero">
+          <img class="lotus" src="hero_lotus.png" alt="ARVI lotus">
+          <div class="wordmark">ARVI</div>
+          <div class="tag">Intelligence in Harmony</div>
+          <h2>Namaste! How can I help your studio today?</h2>
+        </div>
+        <div class="topics">
+          <button class="topic" data-q="Give me a gentle morning yoga sequence for beginners."><svg class="i"><use href="#sun"/></svg><b>Yoga guidance</b><span>Poses & sequences</span></button>
+          <button class="topic" data-q="Draft a warm reply to a new student asking about class timings."><svg class="i"><use href="#chat"/></svg><b>Student replies</b><span>WhatsApp-ready</span></button>
+          <button class="topic" data-q="Suggest a 4-week plan to bring back students who stopped attending."><svg class="i"><use href="#users"/></svg><b>Win-back plan</b><span>Re-engage students</span></button>
+          <button class="topic" data-q="Write a short Instagram caption for our new Sunday workshop."><svg class="i"><use href="#book"/></svg><b>Studio content</b><span>Posts & captions</span></button>
+        </div>
+        <form class="ask" id="homeAsk"><input id="homeIn" placeholder="Ask ARVI anything about your studio…" aria-label="Ask ARVI"><button class="send" aria-label="Send"><svg class="i"><use href="#send"/></svg></button></form>
+        <div class="quote"><img src="side_logo.png" alt=""><span>Small steps on the mat create big changes in life.</span></div>
+      </div>
+      <aside class="prompts card">
+        <h3>Try asking ARVI</h3>
+        <div id="promptList"></div>
+      </aside>
+    </div></section>
+
+    <!-- INBOX -->
+    <section class="page" id="p-inbox"><div class="wrap">
+      <div class="top"><div><h1>Smart Inbox</h1><p>Messages from students and enquiries, sorted by ARVI.</p></div></div>
+      <div class="chips" id="inboxChips"></div>
+      <div class="card" style="padding:4px" id="inboxList"></div>
+    </div></section>
+
+    <!-- STUDENTS -->
+    <section class="page" id="p-students"><div class="wrap">
+      <div class="top"><div><h1>Students</h1><p class="summary" id="stuSum" style="margin:0"></p></div><button class="btn" id="addStu">+ Add student</button></div>
+      <div class="chips" id="stuChips"></div>
+      <div class="split">
+        <div class="card" style="padding:6px"><table class="stu"><thead><tr><th>Student</th><th>Level</th><th>Status</th><th>Last visit</th></tr></thead><tbody id="stuBody"></tbody></table></div>
+        <div class="card" id="stuProfile"><p class="sub">Select a student to see their profile.</p></div>
+      </div>
+    </div></section>
+
+    <!-- CLASSES -->
+    <section class="page" id="p-classes"><div class="wrap">
+      <div class="top"><div><h1>Classes</h1><p>Your schedule and how full each class is.</p></div></div>
+      <div id="classList" class="grid2"></div>
+    </div></section>
+
+    <!-- FOLLOWUPS -->
+    <section class="page" id="p-followups"><div class="wrap">
+      <div class="top"><div><h1>Follow-ups</h1><p>Small nudges that keep students coming back.</p></div></div>
+      <form class="ask" id="fuForm" style="margin-bottom:6px"><input id="fuIn" placeholder="Add a follow-up, e.g. Call Meera about trial class" aria-label="New follow-up"><button class="send" aria-label="Add"><svg class="i"><use href="#check"/></svg></button></form>
+      <div id="fuList"></div>
+    </div></section>
+
+    <!-- ARVI CHAT -->
+    <section class="page" id="p-arvi">
+      <div class="chatpage">
+        <div class="chathead"><div style="display:flex;align-items:center;gap:12px"><div class="avatar"><img src="hero_lotus.png" alt=""></div><div><h1>ARVI Assistant</h1><div class="ready" id="aState">Online</div></div></div><button class="btn ghost sm" id="clearChat">New chat</button></div>
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <div class="note">General guidance, not medical advice.</div>
+        <div class="composer">
+          <form class="ask" id="chatForm">
+            <select class="sel" id="lang" aria-label="Reply language"><option value="English">EN</option><option value="Malayalam">മല</option><option value="Hindi">हिं</option></select>
+            <textarea id="chatIn" rows="1" placeholder="Message ARVI…" aria-label="Message ARVI"></textarea>
+            <button type="button" class="send mic" id="mic" aria-label="Speak" style="background:var(--warm);color:var(--accent)"><svg class="i"><use href="#mic"/></svg></button>
+            <button class="send" aria-label="Send"><svg class="i"><use href="#send"/></svg></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section class="page" id="p-export"><div class="wrap">
+      <div class="top"><div><h1>Export Centre</h1><p>Download your studio data as spreadsheets.</p></div></div>
+      <div class="grid2" id="exGrid"></div>
+      <div style="margin-top:6px"><button class="btn" id="exAll"><svg class="i"><use href="#dl"/></svg>Export everything (.zip)</button></div>
+    </div></section>
+
+    <!-- SETTINGS -->
+    <section class="page" id="p-settings"><div class="wrap">
+      <div class="top"><div><h1>Settings</h1><p>Make ARVYX yours.</p></div></div>
+      <div class="card">
+        <h3 style="margin-bottom:12px">Studio profile</h3>
+        <div class="field"><label for="sName">Studio name</label><input id="sName" placeholder="e.g. Lotus Yoga Studio"><span class="saved" id="sSaved">Saved ✓</span></div>
+        <div class="field"><label for="sCity">City</label><input id="sCity" placeholder="e.g. Kochi"></div>
+        <div class="field"><label>Appearance</label>
+          <div class="seg" id="modeSeg"><button data-m="auto">Auto</button><button data-m="light">Light</button><button data-m="dark">Dark</button></div>
+          <span class="help">Auto switches to dark mode after 7 pm.</span></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3 style="margin-bottom:8px">Connect WhatsApp</h3>
+        <ol class="steps"><li>Open WhatsApp Business on your phone.</li><li>Tap Settings → Linked devices.</li><li>Scan the code shown here once it is enabled.</li></ol>
+        <p class="help">WhatsApp connection is coming soon. Until then use “Copy for WhatsApp” in ARVI replies.</p>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3 style="margin-bottom:8px">ARVI status</h3>
+        <div class="online"><span class="led" id="led"></span><b id="ledTxt">Checking…</b><button class="btn ghost sm" id="testAi">Test ARVI</button></div>
+      </div>
+      <details style="margin-top:16px"><summary>Advanced</summary>
+        <div class="field" style="margin-top:12px"><label for="sUrl">ARVI service address</label><input id="sUrl" placeholder="https://YOUR-PROJECT.supabase.co/functions/v1/arvi-chat"><span class="help">Paste your Supabase Edge Function URL. Never paste an API key here — keys live in Supabase secrets only.</span></div>
+        <button class="btn sm" id="saveUrl">Save address</button>
+        <button class="btn ghost sm" id="resetData" style="margin-left:8px">Reset sample data</button>
+      </details>
+      <div class="card" style="margin-top:16px">
+        <h3 style="margin-bottom:8px">Privacy checklist</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+          <li>☐ Turn on sign-in (Supabase Auth) before adding real student data</li>
+          <li>☐ Enable row-level security on every table</li>
+          <li>☐ Keep Gemini and OpenRouter keys in Supabase secrets only</li>
+          <li>☐ Ask students before saving their phone numbers</li>
+        </ul>
+      </div>
+    </div></section>
+  </main>
+</div>
+
+<nav class="bnav" id="bnav" aria-label="Main">
+  <a href="#home" data-p="home"><svg class="i"><use href="#home"/></svg>Home</a>
+  <a href="#inbox" data-p="inbox"><svg class="i"><use href="#inbox"/></svg>Inbox</a>
+  <a href="#students" data-p="students"><svg class="i"><use href="#users"/></svg>Students</a>
+  <a href="#arvi" data-p="arvi"><svg class="i"><use href="#spark"/></svg>ARVI</a>
+  <a href="#settings" data-p="settings"><svg class="i"><use href="#gear"/></svg>Settings</a>
+</nav>
+<div class="sheet" id="moreSheet"><div>
+  <a href="#classes"><svg class="i"><use href="#cal"/></svg>Classes</a>
+  <a href="#followups"><svg class="i"><use href="#bell"/></svg>Follow-ups</a>
+  <a href="#export"><svg class="i"><use href="#dl"/></svg>Export Centre</a>
+</div></div>
+<div class="toast" id="toast"></div>
+
 <script>
-/* Publishable/anon key only. Never put service_role or Gemini/OpenRouter keys in frontend code. */
-const SUPABASE_ANON_KEY="sb_publishable_LM1Fb5pDCrSNNE8Q2Yp_wg_BnxsoWTa";
-const GEMINI_URL="https://lpwmwdopywgxzzdlrddr.supabase.co/functions/v1/jarvis-gemini";
-const OPENROUTER_URL="https://lpwmwdopywgxzzdlrddr.supabase.co/functions/v1/jarvis-assistant";
-const students=[
-{name:"Ananya Menon",phone:"+91 98765 43210",language:"English",membership:"Active",attendance:"12 classes",payment:"Paid",notes:"Prefers morning sessions"},
-{name:"Rahul Nair",phone:"+91 98765 12340",language:"Malayalam",membership:"Renewal due",attendance:"8 classes",payment:"Pending",notes:"Follow up about renewal"},
-{name:"Meera Krishnan",phone:"+91 91234 56780",language:"Tamil",membership:"Trial",attendance:"1 class",payment:"Not due",notes:"Beginner yoga enquiry"},
-{name:"Arjun Das",phone:"+91 99887 77665",language:"English",membership:"Active",attendance:"16 classes",payment:"Paid",notes:"Interested in weekend classes"}];
-const chats=[
-{name:"Meera Krishnan",type:"New Enquiry",time:"10:42 AM",message:"Hi, I am interested in beginner yoga. Do you have trial classes?",status:"Needs reply"},
-{name:"Rahul Nair",type:"Payments",time:"9:15 AM",message:"Can I renew my monthly membership this week?",status:"Follow-up"},
-{name:"Ananya Menon",type:"Active Students",time:"Yesterday",message:"Thank you! I will attend the 7 AM class tomorrow.",status:"Replied"},
-{name:"Arjun Das",type:"Bookings",time:"Yesterday",message:"Is there a spot available in Saturday's class?",status:"Needs reply"}];
-const classes=[
-{name:"Morning Flow Yoga",time:"Today · 7:00 AM",teacher:"Priya",capacity:"8 / 12 booked"},
-{name:"Beginner Yoga",time:"Today · 6:00 PM",teacher:"Priya",capacity:"10 / 12 booked"},
-{name:"Weekend Stretch",time:"Saturday · 9:00 AM",teacher:"Priya",capacity:"11 / 12 booked"}];
-let tasks=[
-{title:"Reply to Meera's trial class enquiry",due:"Today",priority:"High",done:false},
-{title:"Follow up with Rahul about membership renewal",due:"Today",priority:"High",done:false},
-{title:"Confirm Saturday booking with Arjun",due:"Tomorrow",priority:"Normal",done:false}];
-let page="dashboard",aiHistory=[],busy=false;
-const $=id=>document.getElementById(id),content=$("content");
-const stat=(a,b,c)=>`<div class="card"><div class="label">${a}</div><div class="num">${b}</div><div class="small">${c}</div></div>`;
-const heading=(a,b="")=>`<div class="head"><h2>${a}</h2>${b}</div>`;
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function studentRows(q=""){return students.filter(s=>(s.name+s.membership+s.language).toLowerCase().includes(q.toLowerCase())).map(s=>`<div class="row"><div class="avatar">${esc(s.name.split(" ").map(x=>x[0]).slice(0,2).join(""))}</div><div class="grow"><div class="name">${esc(s.name)}</div><div class="small">${esc(s.language)} · ${esc(s.attendance)} · ${esc(s.payment)}</div></div><span class="pill ${s.membership==="Renewal due"?"gold":""}">${esc(s.membership)}</span></div>`).join("")}
-function chatRows(q=""){return chats.filter(c=>(c.name+c.type+c.message).toLowerCase().includes(q.toLowerCase())).map(c=>`<div class="row" onclick="openChat(${chats.indexOf(c)})"><div class="avatar">${esc(c.name.split(" ").map(x=>x[0]).slice(0,2).join(""))}</div><div class="grow"><div class="name">${esc(c.name)} <span class="small">· ${esc(c.time)}</span></div><div class="small">${esc(c.message)}</div><div style="margin-top:5px"><span class="pill">${esc(c.type)}</span> <span class="pill ${c.status==="Needs reply"?"gold":""}">${esc(c.status)}</span></div></div></div>`).join("")}
-function taskRows(){return tasks.map((t,i)=>`<div class="row"><input aria-label="Complete task" style="width:auto;margin:0" type="checkbox" ${t.done?"checked":""} onchange="toggleTask(${i})"><div class="grow"><div class="name">${esc(t.title)}</div><div class="small">Due ${esc(t.due)}</div></div><span class="pill ${t.priority==="High"?"gold":""}">${esc(t.priority)}</span></div>`).join("")}
-function render(){
-const titles={dashboard:["Your studio at a glance","A calmer way to manage your yoga community."],inbox:["Smart Inbox","Keep student conversations organized."],students:["Student CRM","Know your students and their journey."],classes:["Class Manager","Schedules, bookings, and capacity."],followups:["Follow-up Manager","Never miss a student who needs a response."],assistant:["ARVI Assistant","Your yoga studio copilot for enquiries, follow-ups, and student support."],exports:["Export Centre","Download a copy of your demo data."],settings:["Settings","Workspace preferences and integrations."]};
-$("title").textContent=titles[page][0];$("subtitle").textContent=titles[page][1];document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
-if(page==="dashboard"){document.body.classList.add("dashboard-mode");content.className="home-layout";content.innerHTML=`<section class="home-center"><div class="home-topline"><div class="home-greeting"><span class="greeting-icon" id="greetingIcon">☀</span><div><div class="eyebrow" id="greetingText">Good morning</div><div class="small">Breathe · Teach · Inspire</div></div></div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end"><div class="home-ready"><span style="color:#2DD4CF">●</span> ARVI is ready</div><div class="balance-tag">♧ Yoga Brings Balance <span class="home-avatar">A</span></div></div></div><section class="home-hero"><svg class="home-lotus" viewBox="0 0 220 170" role="img" aria-label="Glowing green lotus"><defs><linearGradient id="petalLeaf" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#d9e7a9"/><stop offset=".48" stop-color="#5e9e7e"/><stop offset="1" stop-color="#16473a"/></linearGradient><radialGradient id="lotusLight"><stop stop-color="#fffbe4" stop-opacity="1"/><stop offset="1" stop-color="#c9a24b" stop-opacity="0"/></radialGradient><filter id="lotusGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5"/></filter></defs><circle cx="110" cy="112" r="64" fill="url(#lotusLight)"/><g fill="url(#petalLeaf)" stroke="#5e9e7e" stroke-width="1.1" stroke-linejoin="round"><path d="M110 140C74 115 78 70 110 25C142 70 146 115 110 140Z"/><path d="M108 140C58 134 34 98 32 60C68 77 93 105 108 140Z"/><path d="M112 140C162 134 186 98 188 60C152 77 127 105 112 140Z"/><path d="M107 141C62 155 30 136 16 109C53 113 82 124 107 141Z"/><path d="M113 141C158 155 190 136 204 109C167 113 138 124 113 141Z"/><path d="M110 142C88 119 91 91 110 69C129 91 132 119 110 142Z"/></g><path d="M110 39C118 69 120 102 110 139" stroke="#d9e7a9" stroke-width="2" fill="none" opacity=".85"/><circle cx="110" cy="133" r="17" fill="#fff2b7" opacity=".85" filter="url(#lotusGlow)"/><circle cx="110" cy="133" r="7" fill="#fff7cf"/><g fill="none" stroke="#c9a24b" stroke-width="1" opacity=".4"><circle cx="110" cy="102" r="66" stroke-dasharray="2 8"/><path d="M110 22V12M110 161V151M42 102H32M188 102H178"/></g></svg><div class="home-wordmark">ARVI</div><div class="home-tagline">Intelligence in Harmony</div><div class="home-namaste">Namaste!</div><div class="home-question">How can I help your studio today?</div></section><div class="home-topic-grid"><button class="home-topic" onclick="homeTopic('Explain yoga wisdom and the benefits of Surya Namaskar for beginners.')"><span class="topic-icon">✧</span><strong>Yoga Wisdom</strong><span>Explore asanas, philosophy and more →</span></button><button class="home-topic" onclick="homeTopic('Create a balanced 30-minute pranayama and breathwork session with safety notes.')"><span class="topic-icon">≋</span><strong>Prana &amp; Breath</strong><span>Breathing, meditation and relaxation →</span></button><button class="home-topic" onclick="homeTopic('Help me reply to a new student enquiry and understand their class interests.')"><span class="topic-icon">♧</span><strong>Student Journey</strong><span>Handle enquiries and understand interests →</span></button><button class="home-topic" onclick="homeTopic('Help me organize my studio schedule, follow-ups and tasks. Do not claim actions have been completed.')"><span class="topic-icon">☼</span><strong>Studio Harmony</strong><span>Manage schedules, follow-ups and tasks →</span></button></div><form class="home-chatbar" onsubmit="sendHomeAsk(event)"><input id="homeAskInput" aria-label="Ask ARVI" placeholder="Ask anything about yoga, your students or your studio…" autocomplete="off"><button type="submit" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.7 18-3.8-7.5L3 9.7 21 3Z"/></svg></button></form></section><aside class="home-popular"><h3>Popular prompts</h3><div class="prompt-intro">Start with these or ask your own</div><div class="popular-list"><button class="prompt-item" type="button" onclick="homeTopic('Explain the benefits of Surya Namaskar for beginners in a safe, practical way.')"><span class="prompt-icon">☼</span><span>Explain the benefits of Surya Namaskar</span><span>→</span></button><button class="prompt-item" type="button" onclick="homeTopic('Create a balanced 30-minute beginner yoga programme with warm-up, main practice, and relaxation.')"><span class="prompt-icon">≋</span><span>Give a 30-minute programme sequence</span><span>→</span></button><button class="prompt-item" type="button" onclick="homeTopic('Draft a warm, professional reply to a new student asking about yoga classes. Ask whether they prefer a trial, regular classes, or membership details.')"><span class="prompt-icon">♧</span><span>Draft a reply for a new student enquiry</span><span>→</span></button><button class="prompt-item" type="button" onclick="homeTopic('Create a weekly yoga class schedule template. Ask for missing availability rather than inventing actual studio times.')"><span class="prompt-icon">▦</span><span>Create a weekly class schedule</span><span>→</span></button><button class="prompt-item" type="button" onclick="homeTopic('Suggest gentle yoga practices for stress relief, including safety modifications and when to stop.')"><span class="prompt-icon">♢</span><span>Suggest yoga for stress relief</span><span>→</span></button><button class="prompt-item" type="button" onclick="homeTopic('Share practical sleep-hygiene tips and a gentle evening relaxation routine. Avoid medical claims.')"><span class="prompt-icon">☾</span><span>Share tips for better sleep through yoga</span><span>→</span></button></div><div class="home-quote">Small steps on the mat<br>create big changes in life.</div></aside>`}else{document.body.classList.remove("dashboard-mode");content.className="";}
-if(page==="inbox")content.innerHTML=`<div class="actions"><button class="alt" onclick="filterChats('')">All</button><button class="alt" onclick="filterChats('Enquiry')">Enquiries</button><button class="alt" onclick="filterChats('Payments')">Payments</button><button class="alt" onclick="filterChats('Bookings')">Bookings</button></div><input class="search" placeholder="Search conversations..." oninput="filterChats(this.value)"><div class="card" id="chatlist">${chatRows()}</div><div id="chatdetail"></div>`;
-if(page==="students")content.innerHTML=`${heading("Your students",'<button onclick="addStudent()">+ Add student</button>')}<input class="search" placeholder="Search students..." oninput="$('studentlist').innerHTML=studentRows(this.value)"><div class="card" id="studentlist">${studentRows()}</div>`;
-if(page==="classes")content.innerHTML=`${heading("Upcoming classes",'<button onclick="addClass()">+ Add class</button>')}<div class="card">${classes.map(c=>`<div class="row"><div class="avatar">🧘</div><div class="grow"><div class="name">${esc(c.name)}</div><div class="small">${esc(c.time)} · Instructor: ${esc(c.teacher)}</div></div><span class="pill">${esc(c.capacity)}</span></div>`).join("")}</div>`;
-if(page==="followups")content.innerHTML=`${heading("Tasks to complete",'<button onclick="addTask()">+ Add follow-up</button>')}<div class="card">${taskRows()}</div>`;
-if(page==="assistant"){content.innerHTML=`<div class="assistant-layout"><section class="assistant-main"><div class="assistant-head"><div><div class="eyebrow">ARVI · STUDIO COPILOT</div><div class="small">Your studio assistant for enquiries, follow-ups, and student support.</div></div><button type="button" class="alt" onclick="clearChat()">＋ New chat</button></div><div class="assistant-chat" id="chatbox" aria-live="polite" aria-label="Conversation"></div><form class="composer-wrap" onsubmit="sendAsk(event)"><input id="askinput" aria-label="Message ARVI" placeholder="Ask ARVI about your studio…" autocomplete="off"><button class="send-round" id="sendBtn" type="submit" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.7 18-3.8-7.5L3 9.7 21 3Z"/></svg></button></form><div class="assistant-note" id="aiStatus" aria-live="polite">Your studio assistant is ready.</div></section><aside class="popular-panel"><h3>Popular prompts</h3><div class="prompt-intro">Start with these or ask your own</div><div class="popular-list"><button class="prompt-item" type="button" onclick="ask('Explain the benefits of Surya Namaskar for beginners in a safe, practical way.')"><span class="prompt-icon">☼</span><span>Explain the benefits of Surya Namaskar</span></button><button class="prompt-item" type="button" onclick="ask('Create a balanced 30-minute beginner yoga programme with warm-up, main practice, and relaxation.')"><span class="prompt-icon">≋</span><span>Give a 30-minute programme sequence</span></button><button class="prompt-item" type="button" onclick="ask('Draft a warm, professional reply to a new student asking about yoga classes. Ask whether they prefer a trial, regular classes, or membership details.')"><span class="prompt-icon">♧</span><span>Draft a reply for a new student enquiry</span></button><button class="prompt-item" type="button" onclick="ask('Create a weekly yoga class schedule template. Ask for missing availability rather than inventing actual studio times.')"><span class="prompt-icon">▦</span><span>Create a weekly class schedule</span></button><button class="prompt-item" type="button" onclick="ask('Suggest gentle yoga practices for stress relief, including safety modifications and when to stop.')"><span class="prompt-icon">♢</span><span>Suggest yoga for stress relief</span></button><button class="prompt-item" type="button" onclick="ask('Share practical sleep-hygiene tips and a gentle evening relaxation routine. Avoid medical claims.')"><span class="prompt-icon">☾</span><span>Share tips for better sleep through yoga</span></button></div></aside></div>`;drawHistory()}
-if(page==="exports")content.innerHTML=`<div class="grid">${stat("Students",students.length,"Sample records")}${stat("Conversations",chats.length,"Sample messages")}${stat("Classes",classes.length,"Schedule records")}${stat("Follow-ups",tasks.length,"Task records")}</div>${heading("Download demo data")}<div class="card"><p>Export sample data for testing. Do not use this prototype for real student information.</p><div class="actions"><button onclick="exportCSV()">Students CSV</button><button class="alt" onclick="exportTXT()">Conversations TXT</button><button class="alt" onclick="exportJSON()">Demo JSON</button></div></div>`;
-if(page==="settings")content.innerHTML=`<div class="card"><h2>Workspace</h2><p class="muted">Demo workspace</p><input id="workspaceInput" value="My Yoga Studio"><button onclick="saveWorkspace()">Save workspace name</button></div><div class="card"><h2>WhatsApp Business</h2><span class="pill gold">Not connected</span><p class="muted">Live messaging needs official WhatsApp Business Platform setup and credentials.</p></div><div class="card"><h2>AI connection</h2><p class="muted">Gemini is attempted first. OpenRouter is tried if Gemini returns an error. Keep provider API keys in Supabase secrets only.</p></div><div class="card"><h2>Privacy and security</h2><p class="muted">This prototype has no real authentication, cloud database, or secure multi-tenant separation. Do not enter real student data.</p></div>`;
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var ICON=function(n){return '<svg class="i"><use href="#'+n+'"/></svg>'};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function store(k,v){try{if(v===undefined){var r=localStorage.getItem(k);return r?JSON.parse(r):null}localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},1800)}
+
+/* ================= ARVI AI CONNECTION =================
+   >>> PASTE YOUR EXISTING SUPABASE / GEMINI / OPENROUTER CALL HERE <<<
+   Set ARVI_URL to your Supabase Edge Function address (or paste it in Settings → Advanced).
+   The function should accept {message, language, history} and return {reply: "..."}.
+   NEVER put an API key in this file. */
+var ARVI_URL='';           // e.g. 'https://YOUR-PROJECT.supabase.co/functions/v1/arvi-chat'
+var SUPABASE_ANON_KEY='';  // the public anon key is OK here; never the service key or AI keys
+function arviUrl(){return store('arvi_url')||ARVI_URL}
+function callARVI(message,language,history,signal){
+  var url=arviUrl();
+  if(!url){return new Promise(function(res){setTimeout(function(){res(demoReply(message,language))},700)})}
+  var h={'Content-Type':'application/json'};
+  if(SUPABASE_ANON_KEY){h['Authorization']='Bearer '+SUPABASE_ANON_KEY;h['apikey']=SUPABASE_ANON_KEY}
+  return fetch(url,{method:'POST',headers:h,body:JSON.stringify({message:message,language:language,history:history}),signal:signal})
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
+    .then(function(d){var t=d.reply||d.text||d.answer||(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content);if(!t)throw new Error('Empty reply');return t});
 }
-function lotusMark(){return '<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#5e9e7e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M50 82C31 63 34 38 50 15C66 38 69 63 50 82Z"/><path d="M50 82C25 78 13 59 13 39C30 48 43 62 50 82Z"/><path d="M50 82C75 78 87 59 87 39C70 48 57 62 50 82Z"/><path d="M50 82C31 88 17 79 9 68C26 69 40 76 50 82Z"/><path d="M50 82C69 88 83 79 91 68C74 69 60 76 50 82Z"/><path d="M50 43V80" stroke-dasharray="2 5"/></g></svg>'}
-function drawHistory(){const box=$("chatbox");if(!box)return;box.replaceChildren();if(!aiHistory.length){const welcome=document.createElement("div");welcome.className="assistant-empty";welcome.innerHTML='<svg class="welcome-lotus" viewBox="0 0 220 170" role="img" aria-label="ARVI lotus"><defs><radialGradient id="welcomeGlow"><stop stop-color="#f5e6ad" stop-opacity=".85"/><stop offset="1" stop-color="#f5e6ad" stop-opacity="0"/></radialGradient></defs><circle cx="110" cy="92" r="78" fill="url(#welcomeGlow)"/><g fill="none" stroke="#5e9e7e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M110 145C70 118 73 75 110 20C147 75 150 118 110 145Z"/><path d="M110 145C42 141 22 100 25 58C61 78 88 99 110 145Z"/><path d="M110 145C178 141 198 100 195 58C159 78 132 99 110 145Z"/><path d="M110 145C59 159 26 140 10 112C51 118 78 127 110 145Z"/><path d="M110 145C161 159 194 140 210 112C169 118 142 127 110 145Z"/><path d="M110 82V137" stroke-dasharray="2 6"/></g><circle cx="110" cy="100" r="3" fill="#c9a24b"/></svg><h2>Namaste! I’m ARVI.</h2><p>How can I help your studio today?</p>';box.appendChild(welcome);return}aiHistory.forEach(item=>{if(item.role==="assistant"&&!item.pending){const row=document.createElement("div");row.className="assistant-reply-row";const mark=document.createElement("div");mark.className="reply-lotus";mark.innerHTML=lotusMark();row.appendChild(mark);const b=document.createElement("div");b.className="bubble";b.textContent=item.text;row.appendChild(b);if(item.error){const retry=document.createElement("button");retry.type="button";retry.className="alt";retry.textContent="Retry";retry.onclick=()=>retryMessage(item.id);b.appendChild(document.createElement("br"));b.appendChild(retry)}box.appendChild(row);return}const b=document.createElement("div");b.className="bubble"+(item.role==="user"?" me":"");if(item.pending){b.innerHTML='<svg class="thinking-lotus" viewBox="0 0 220 170" aria-label="ARVI is thinking" role="img"><g fill="none" stroke="#2dd4cf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M110 145C70 118 73 75 110 20C147 75 150 118 110 145Z"/><path d="M110 145C42 141 22 100 25 58C61 78 88 99 110 145Z"/><path d="M110 145C178 141 198 100 195 58C159 78 132 99 110 145Z"/><path d="M110 145C59 159 26 140 10 112C51 118 78 127 110 145Z"/><path d="M110 145C161 159 194 140 210 112C169 118 142 127 110 145Z"/><path d="M110 145C86 119 91 89 110 68C129 89 134 119 110 145Z"/><path d="M110 82V137" stroke-dasharray="2 8"/></g><g fill="#2dd4cf"><circle cx="110" cy="91" r="4"/><circle cx="110" cy="104" r="4"/><circle cx="110" cy="117" r="4"/><circle cx="110" cy="130" r="4"/></g></svg><span>Preparing your answer…</span>'}else{b.textContent=item.text}box.appendChild(b)});box.scrollTop=box.scrollHeight}
-function updateGreeting(){const now=new Date(),h=now.getHours();let greeting,icon;if(h<12){greeting="Good Morning";icon="☀"}else if(h<17){greeting="Good Afternoon";icon="☼"}else if(h<21){greeting="Good Evening";icon="☾"}else{greeting="Good Night";icon="☾"}const g=$("greetingText"),i=$("greetingIcon");if(g)g.textContent=greeting;if(i)i.textContent=icon;const e=$("topEyebrow");if(e&&page==="dashboard")e.textContent="ARVYX · INTELLIGENCE IN HARMONY"}
-function sendHomeAsk(e){e.preventDefault();const input=$("homeAskInput"),q=input?input.value.trim():"";if(!q)return;go("assistant");ask(q)}
-function homeTopic(q){go("assistant");ask(q)}
-function go(p){page=p;render();updateGreeting()}document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>go(b.dataset.page));
-function filterChats(q){const el=$("chatlist");if(el)el.innerHTML=chatRows(q)}
-function openChat(i){const c=chats[i],detail=$("chatdetail");if(!detail)return;detail.innerHTML=`<div class="card"><h3>${esc(c.name)}</h3><div class="chat"><div class="bubble">${esc(c.message)}</div><div class="bubble me">Hi! Thanks for reaching out. We’d be happy to help you find a suitable class.<div class="small">Sample reply draft — not sent</div></div></div><button class="alt" onclick="alert('Draft only. No message was sent.')">Review draft</button></div>`}
-function toggleTask(i){tasks[i].done=!tasks[i].done;render()}
-function addStudent(){let name=prompt("Student name?");if(!name)return;students.push({name,phone:"Not provided",language:"Not set",membership:"Trial",attendance:"0 classes",payment:"Not due",notes:""});render()}
-function addClass(){let name=prompt("Class name?");if(!name)return;classes.push({name,time:prompt("Date and time?")||"To be confirmed",teacher:"Studio teacher",capacity:"0 / 10 booked"});render()}
-function addTask(){let title=prompt("Follow-up task?");if(!title)return;tasks.push({title,due:"Today",priority:"Normal",done:false});render()}
-function ask(q){const input=$("askinput");if(input)input.value=q;sendToAI(q)}
-function sendAsk(e){e.preventDefault();const input=$("askinput"),q=input?input.value.trim():"";if(q)sendToAI(q)}
-async function callFunction(url,payload,field){const headers={"Content-Type":"application/json"};if(SUPABASE_ANON_KEY){headers.apikey=SUPABASE_ANON_KEY;headers.Authorization="Bearer "+SUPABASE_ANON_KEY}const res=await fetch(url,{method:"POST",headers,body:JSON.stringify(payload)});const raw=await res.text();let data;try{data=JSON.parse(raw)}catch{data={}}if(!res.ok)throw new Error((data.error||data.message||raw||("HTTP "+res.status)).toString().slice(0,240));const answer=data[field]||data.text||data.answer||data.response;if(typeof answer!=="string"||!answer.trim())throw new Error("The AI function returned no answer text.");return answer.trim()}
-async function sendToAI(q){const box=$("chatbox"),input=$("askinput"),btn=$("sendBtn"),status=$("aiStatus");if(!box||!q.trim()||busy)return;busy=true;const id=Date.now()+"-"+Math.random().toString(36).slice(2);aiHistory.push({id,role:"user",text:q});const reply={id,role:"assistant",text:"ARVI is thinking…",pending:true};aiHistory.push(reply);drawHistory();if(input)input.value="";if(btn)btn.disabled=true;if(status)status.textContent="ARVI is thinking…";try{let answer,provider;const studioContext={students:students.map(s=>({name:s.name,membership:s.membership,attendance:s.attendance,payment:s.payment,notes:s.notes})),conversations:chats.map(c=>({name:c.name,type:c.type,message:c.message,status:c.status,time:c.time})),classes:classes.map(c=>({name:c.name,time:c.time,teacher:c.teacher,capacity:c.capacity})),followups:tasks.map(t=>({title:t.title,due:t.due,priority:t.priority,done:t.done}))};const instructions=`You are ARVI, an AI assistant created by ARVYX. a practical and warm AI assistant for yoga teachers and yoga studios. Help with student enquiries, lead qualification, trial-class conversion, class scheduling, membership renewals, attendance follow-ups, customer service, and message drafts.
-
-RESPONSE STYLE: Answer directly and naturally, like a capable conversational assistant. Use concise headings or bullets only when useful. Avoid generic filler and avoid repeating the question. For a draft, provide a ready-to-send message first, then a brief note if needed. For planning, give clear actionable steps. Ask at most one clarifying question only when it materially changes the answer.
-
-ACCURACY AND SAFETY: Use only the sample workspace context supplied below when asked about studio records. Never claim that a message was sent, a booking was made, a payment was checked, or a real WhatsApp account was connected. Do not invent student details, prices, schedules, policies, or health advice. If information is missing, say so and label suggestions as examples. For yoga/health questions, avoid diagnosing or promising treatment; advise adapting practice to individual needs and consulting a qualified clinician for medical concerns. Keep personal student data private and share only what is needed.
-
-SAMPLE WORKSPACE CONTEXT (demo data, not live records): ${JSON.stringify(studioContext)}
-
-USER REQUEST: ${q}`;try{answer=await callFunction(GEMINI_URL,{prompt:instructions},"text");provider="Gemini"}catch(geminiError){if(status)status.textContent="Gemini unavailable. Trying backup AI…";answer=await callFunction(OPENROUTER_URL,{message:instructions},"answer");provider="OpenRouter backup"}reply.text=answer;reply.provider=provider;delete reply.pending;if(status)status.textContent="Answer ready."}catch(err){reply.text="ARVI couldn’t get an answer. Please check your connection and try again.";reply.error=true;reply.retryFor=q;delete reply.pending;if(status)status.textContent="Request failed: "+String(err.message||"Unknown error").slice(0,140)}finally{busy=false;if(btn)btn.disabled=false;drawHistory();if(input)input.focus();const thinkingScreen=$("arviThinking");if(thinkingScreen){thinkingScreen.classList.remove("active");thinkingScreen.style.display="none"}}
+function demoReply(m,l){
+  return "Namaste! (Demo mode — ARVI is not connected yet.)\n\nYou asked: “"+m+"”.\n\nOnce your Supabase address is added in Settings → Advanced, I will answer with live guidance"+(l!=='English'?" in "+l:"")+".";
 }
-function clearChat(){if(busy)return;aiHistory.length=0;drawHistory();const status=$("aiStatus");if(status)status.textContent="Your new conversation is ready.";const input=$("askinput");if(input)input.focus()}
-function retryMessage(id){const index=aiHistory.findIndex(x=>x.id===id&&x.error);if(index<0)return;const q=aiHistory[index].retryFor;aiHistory.splice(index,1);sendToAI(q)}
-function download(n,t,type){let a=document.createElement("a"),u=URL.createObjectURL(new Blob([t],{type}));a.href=u;a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
-function exportCSV(){let r=[["Name","Phone","Language","Membership","Attendance","Payment","Notes"],...students.map(s=>[s.name,s.phone,s.language,s.membership,s.attendance,s.payment,s.notes])];download("arvyx-students.csv",r.map(x=>x.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\n"),"text/csv")}
-function exportTXT(){download("arvyx-conversations.txt",chats.map(c=>`${c.name} | ${c.type} | ${c.time}\n${c.message}\nStatus: ${c.status}\n`).join("\n"),"text/plain")}
-function exportJSON(){download("arvyx-demo.json",JSON.stringify({students,chats,classes,tasks},null,2),"application/json")}
-function saveWorkspace(){let n=$("workspaceInput").value.trim();if(n){$("workspace").textContent=n;alert("Name updated on this screen.")}}
-render();updateGreeting();
-// Show the branded intro briefly; it never blocks the app if motion is reduced.
-const splash=document.getElementById("brandSplash");
-if(splash){const delay=window.matchMedia("(prefers-reduced-motion: reduce)").matches?900:6500;window.setTimeout(()=>splash.classList.add("hide"),delay);splash.addEventListener("click",()=>splash.classList.add("hide"),{once:true});}
+
+/* ================= SAMPLE DATA ================= */
+function seed(){return{
+ students:[
+  {id:1,name:'Meera Nair',phone:'+91 98470 11001',level:'Beginner',status:'Active',last:'2 days ago',note:'Prefers morning batch.'},
+  {id:2,name:'Arjun Menon',phone:'+91 98470 11002',level:'Intermediate',status:'Active',last:'Yesterday',note:'Back pain — gentle poses.'},
+  {id:3,name:'Sneha Pillai',phone:'+91 98470 11003',level:'Beginner',status:'Trial',last:'Today',note:'Trial class booked.'},
+  {id:4,name:'Rahul Varma',phone:'+91 98470 11004',level:'Advanced',status:'Inactive',last:'5 weeks ago',note:'Stopped after travel.'},
+  {id:5,name:'Anjali Das',phone:'+91 98470 11005',level:'Intermediate',status:'Active',last:'3 days ago',note:''}],
+ inbox:[
+  {id:1,from:'Sneha Pillai',text:'Hi! What are the timings for the beginner batch?',cat:'Enquiry',status:'New',unread:1,time:'9:12 am',urgent:0},
+  {id:2,from:'Arjun Menon',text:'Can I shift tomorrow’s class to the evening?',cat:'Booking',status:'New',unread:1,time:'8:40 am',urgent:1},
+  {id:3,from:'Meera Nair',text:'Thank you for the lovely session yesterday 🙏',cat:'Feedback',status:'Replied',unread:0,time:'Yesterday',urgent:0},
+  {id:4,from:'Rahul Varma',text:'Is the monthly pass still available?',cat:'Payment',status:'New',unread:1,time:'Yesterday',urgent:0}],
+ classes:[
+  {id:1,name:'Sunrise Vinyasa',when:'Mon · 6:30 am',cap:15,booked:12,past:1},
+  {id:2,name:'Gentle Hatha',when:'Tue · 8:00 am',cap:12,booked:7,past:0},
+  {id:3,name:'Evening Flow',when:'Wed · 6:00 pm',cap:20,booked:19,past:0},
+  {id:4,name:'Meditation & Pranayama',when:'Sat · 7:00 am',cap:25,booked:10,past:0}],
+ follow:[
+  {id:1,text:'Call Sneha about trial class feedback',when:'Today',done:0},
+  {id:2,text:'Send Rahul the monthly pass offer',when:'Today',done:0},
+  {id:3,text:'Thank Meera for her review',when:'Tomorrow',done:1},
+  {id:4,text:'Plan the Sunday workshop post',when:'Later',done:0}]
+}}
+var D=store('arvyx_data')||seed();
+function save(){store('arvyx_data',D)}
+
+/* ================= THEME & GREETING ================= */
+function pref(){return store('arvyx_mode')||'auto'}
+function isNight(){var h=new Date().getHours();return h>=19||h<5}
+function applyMode(){
+  var m=pref(),dark=m==='dark'||(m==='auto'&&isNight());
+  document.documentElement.setAttribute('data-mode',dark?'dark':'light');
+  var tc=document.querySelector('meta[name=theme-color]');tc.setAttribute('content',dark?'#0A0F0E':'#16473A');
+  $$('#modeSeg button').forEach(function(b){b.classList.toggle('on',b.dataset.m===m)});
+  setLotus();
+}
+function greeting(){
+  var h=new Date().getHours(),t,ic='sun';
+  if(h>=5&&h<12)t='Good Morning';else if(h>=12&&h<17)t='Good Afternoon';else if(h>=17&&h<21){t='Good Evening';ic=h>=19?'moon':'sun'}else{t='Good Night';ic='moon'}
+  var name=(store('arvyx_studio')||{}).owner;
+  $('#gText').textContent=t;
+  $('#gIcon').innerHTML='<use href="#'+ic+'"/>';
+}
+function setLotus(){
+  var dark=document.documentElement.getAttribute('data-mode')==='dark';
+  $$('.hero .lotus,.empty img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus.png'});
+  $$('.think img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus.png'});
+}
+$('#modeBtn').onclick=function(){var d=document.documentElement.getAttribute('data-mode')==='dark';store('arvyx_mode',d?'light':'dark');applyMode()};
+$$('#modeSeg button').forEach(function(b){b.onclick=function(){store('arvyx_mode',b.dataset.m);applyMode()}});
+
+/* ================= ROUTER ================= */
+var PAGES=['home','inbox','students','classes','followups','arvi','export','settings'];
+function route(){
+  var p=(location.hash||'#home').slice(1);if(PAGES.indexOf(p)<0)p='home';
+  $$('.page').forEach(function(s){s.classList.toggle('on',s.id==='p-'+p)});
+  $$('#sidenav a,#bnav a').forEach(function(a){a.classList.toggle('on',a.dataset.p===p)});
+  var more=['classes','followups','export'].indexOf(p)>=0;
+  $('#moreSheet').classList.remove('on');
+  document.title=(p==='home'?'':cap(p==='arvi'?'ARVI':p)+' · ')+'ARVYX — Intelligence in Harmony';
+  if(p==='arvi'){renderChat();setTimeout(function(){var m=$('#msgs');m.scrollTop=m.scrollHeight},30)}
+  if(p==='home')renderHome();
+  if(p==='inbox')renderInbox();if(p==='students')renderStudents();if(p==='classes')renderClasses();
+  if(p==='followups')renderFollow();if(p==='export')renderExport();if(p==='settings')renderSettings();
+  window.scrollTo(0,0);
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+window.addEventListener('hashchange',route);
+// add "More" to bottom nav on phones
+(function(){var b=document.createElement('a');b.href='#more';b.innerHTML=ICON('more')+'More';b.id='moreBtn';
+  b.onclick=function(e){e.preventDefault();$('#moreSheet').classList.add('on')};
+  var nav=$('#bnav');nav.style.gridTemplateColumns='repeat(6,1fr)';nav.appendChild(b);
+  $('#moreSheet').onclick=function(e){if(e.target===this||e.target.closest('a'))this.classList.remove('on')};})();
+
+/* ================= HOME ================= */
+var PROMPTS=[['book','Explain a pose','How do I teach Trikonasana safely to beginners?'],['chat','Reply to an enquiry','Write a friendly WhatsApp reply for someone asking about fees.'],['users','Re-engage students','Write a message for students who haven’t visited in a month.'],['cal','Plan a workshop','Plan a 2-hour Sunday stress-relief workshop.'],['spark','Class theme','Suggest a theme and playlist idea for Friday evening flow.']];
+function renderHome(){
+  var unread=D.inbox.filter(function(m){return m.unread}).length,fu=D.follow.filter(function(f){return f.when==='Today'&&!f.done}).length,nextC=D.classes.filter(function(c){return !c.past})[0];
+  $('#today').innerHTML='<a href="#inbox"><b>'+unread+'</b><span>new messages</span></a><a href="#followups"><b>'+fu+'</b><span>follow-ups today</span></a><a href="#classes"><b>'+(nextC?esc(nextC.name):'—')+'</b><span>next class</span></a>';
+  $('#promptList').innerHTML=PROMPTS.map(function(p,i){return '<button class="prompt" data-q="'+esc(p[2])+'"><span class="ic">'+ICON(p[0])+'</span><span><b>'+p[1]+'</b><span>'+esc(p[2])+'</span></span></button>'}).join('');
+  greeting();setLotus();
+}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-q]');if(t){goAsk(t.getAttribute('data-q'))}});
+$('#homeAsk').onsubmit=function(e){e.preventDefault();var v=$('#homeIn').value.trim();if(v){$('#homeIn').value='';goAsk(v)}};
+function goAsk(q){pending=q;location.hash='#arvi'}
+var pending=null;
+
+/* ================= INBOX ================= */
+var inboxF='All';
+function renderInbox(){
+  var cats=['All','Unread','Enquiry','Booking','Payment','Feedback'];
+  $('#inboxChips').innerHTML=cats.map(function(c){var n=c==='All'?D.inbox.length:c==='Unread'?D.inbox.filter(function(m){return m.unread}).length:D.inbox.filter(function(m){return m.cat===c}).length;return '<button class="chip'+(c===inboxF?' on':'')+'" data-f="'+c+'">'+c+'<em>'+n+'</em></button>'}).join('');
+  var list=D.inbox.filter(function(m){return inboxF==='All'||(inboxF==='Unread'?m.unread:m.cat===inboxF)});
+  $('#inboxList').innerHTML=list.length?list.map(function(m){return '<div class="row"><span class="dot'+(m.unread?'':' read')+'"></span><div class="grow"><div style="display:flex;justify-content:space-between;gap:8px"><span class="name">'+esc(m.from)+'</span><span class="sub">'+esc(m.time)+'</span></div><div class="sub">'+esc(m.text)+'</div><span class="tag t-cat">'+m.cat+'</span><span class="tag t-st">'+m.status+'</span>'+(m.urgent?'<span class="tag t-urgent">Urgent</span>':'')+'<div style="margin-top:8px"><button class="btn sm" data-sug="'+m.id+'">Suggest reply</button></div></div></div>'}).join(''):'<p class="sub" style="padding:18px">Nothing here yet. 🌿</p>';
+  $$('#inboxChips .chip').forEach(function(c){c.onclick=function(){inboxF=c.dataset.f;renderInbox()}});
+  $$('[data-sug]').forEach(function(b){b.onclick=function(){var m=D.inbox.filter(function(x){return x.id==b.dataset.sug})[0];m.unread=0;save();goAsk('Write a short, warm WhatsApp reply to '+m.from+', who wrote: “'+m.text+'”')}});
+}
+
+/* ================= STUDENTS ================= */
+var stuF='All',stuSel=null;
+function renderStudents(){
+  var by=function(s){return D.students.filter(function(x){return x.status===s}).length};
+  $('#stuSum').textContent=D.students.length+' students · '+by('Active')+' active · '+by('Trial')+' on trial · '+by('Inactive')+' inactive';
+  $('#stuChips').innerHTML=['All','Active','Trial','Inactive'].map(function(c){return '<button class="chip'+(c===stuF?' on':'')+'" data-f="'+c+'">'+c+'</button>'}).join('');
+  $$('#stuChips .chip').forEach(function(c){c.onclick=function(){stuF=c.dataset.f;renderStudents()}});
+  $('#stuBody').innerHTML=D.students.filter(function(s){return stuF==='All'||s.status===stuF}).map(function(s){return '<tr class="click" data-id="'+s.id+'"><td><span class="name">'+esc(s.name)+'</span></td><td>'+s.level+'</td><td><span class="tag '+(s.status==='Inactive'?'t-urgent':'t-cat')+'" style="margin:0">'+s.status+'</span></td><td class="sub">'+esc(s.last)+'</td></tr>'}).join('');
+  $$('#stuBody tr').forEach(function(r){r.onclick=function(){stuSel=+r.dataset.id;profile()}});
+  profile();
+}
+function profile(){
+  var s=D.students.filter(function(x){return x.id===stuSel})[0],el=$('#stuProfile');
+  if(!s){el.innerHTML='<p class="sub">Select a student to see their profile.</p>';return}
+  el.innerHTML='<div class="avatar" style="width:56px;height:56px;font-family:var(--serif);color:var(--cream);font-size:22px">'+esc(s.name.charAt(0))+'</div><h3 style="margin:10px 0 2px">'+esc(s.name)+'</h3><p class="sub">'+esc(s.level)+' · '+s.status+'</p><p class="sub" style="margin-top:8px">'+esc(s.phone)+'</p><p style="margin-top:8px">'+esc(s.note||'No notes yet.')+'</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn sm" id="pMsg">Draft message</button><button class="btn ghost sm" id="pFu">Add follow-up</button></div>';
+  $('#pMsg').onclick=function(){goAsk('Write a friendly WhatsApp message to '+s.name+' ('+s.level+', '+s.status+', last visit '+s.last+').')};
+  $('#pFu').onclick=function(){D.follow.unshift({id:Date.now(),text:'Check in with '+s.name,when:'Today',done:0});save();toast('Follow-up added')};
+}
+$('#addStu').onclick=function(){var n=prompt('Student name?');if(!n)return;D.students.unshift({id:Date.now(),name:n.trim(),phone:'',level:'Beginner',status:'Trial',last:'—',note:''});save();renderStudents()};
+
+/* ================= CLASSES ================= */
+function renderClasses(){
+  $('#classList').innerHTML=D.classes.map(function(c){var p=Math.round(c.booked/c.cap*100);return '<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><h3 style="font-size:22px">'+esc(c.name)+'</h3>'+(c.past?'<span class="tag t-done" style="margin:0;height:fit-content">Completed</span>':'')+'</div><p class="sub">'+esc(c.when)+'</p><p style="margin-top:8px;font-size:14px">'+c.booked+' of '+c.cap+' spots · '+(c.cap-c.booked)+' left</p><div class="cap"><i style="width:'+p+'%"></i></div></div>'}).join('');
+}
+
+/* ================= FOLLOW-UPS ================= */
+function renderFollow(){
+  var out='';['Today','Tomorrow','Later'].forEach(function(g){var items=D.follow.filter(function(f){return f.when===g});if(!items.length)return;out+='<div class="grp">'+g+'</div><div class="card" style="padding:4px">'+items.map(function(f){return '<div class="row'+(f.done?' done':'')+'"><button class="chk'+(f.done?' on':'')+'" data-t="'+f.id+'" aria-label="Mark done">'+(f.done?ICON('check').replace('class="i"','class="i" style="width:14px;height:14px"'):'')+'</button><div class="grow"><div class="name">'+esc(f.text)+'</div></div><button class="btn ghost sm" data-w="'+f.id+'">Draft message</button></div>'}).join('')+'</div>'});
+  $('#fuList').innerHTML=out||'<p class="sub">All caught up. 🌿</p>';
+  $$('[data-t]').forEach(function(b){b.onclick=function(){var f=D.follow.filter(function(x){return x.id==b.dataset.t})[0];f.done=f.done?0:1;save();renderFollow()}});
+  $$('[data-w]').forEach(function(b){b.onclick=function(){var f=D.follow.filter(function(x){return x.id==b.dataset.w})[0];goAsk('Write a short WhatsApp message for this follow-up: '+f.text)}});
+}
+$('#fuForm').onsubmit=function(e){e.preventDefault();var v=$('#fuIn').value.trim();if(!v)return;D.follow.unshift({id:Date.now(),text:v,when:'Today',done:0});$('#fuIn').value='';save();renderFollow()};
+
+/* ================= CHAT ================= */
+var chat=store('arvyx_chat')||[],busy=false,ctl=null;
+function persistChat(){store('arvyx_chat',chat.slice(-60))}
+function renderChat(){
+  var box=$('#msgs');
+  if(!chat.length){
+    box.innerHTML='<div class="empty"><img src="hero_lotus.png" alt="ARVI"><h2>Namaste! How can I help?</h2><div class="chips">'+PROMPTS.map(function(p){return '<button class="chip" data-q="'+esc(p[2])+'">'+p[1]+'</button>'}).join('')+'</div></div>';setLotus();
+  }else{
+    box.innerHTML=chat.map(function(m,i){return bubble(m,i)}).join('');
+  }
+  box.scrollTop=box.scrollHeight;
+  if(pending){var q=pending;pending=null;send(q)}
+}
+function bubble(m,i){
+  if(m.role==='user')return '<div class="m user"><div class="bub">'+esc(m.text)+'</div></div>';
+  var last=i===chat.length-1;
+  return '<div class="m bot"><div class="avatar"><img src="hero_lotus.png" alt=""></div><div><div class="bub">'+esc(m.text)+'</div>'+(m.err?'<div class="acts"><button data-act="retry">Retry</button></div>':'<div class="acts"><button data-act="copy" data-i="'+i+'">Copy</button><button data-act="wa" data-i="'+i+'">Copy for WhatsApp</button><button data-act="fu" data-i="'+i+'">Save as follow-up</button><button data-act="inb" data-i="'+i+'">Add to Smart Inbox</button>'+(last?'<button data-act="regen">Regenerate</button>':'')+'</div>')+'</div></div>';
+}
+function thinking(on){
+  var old=$('#thinkMsg');if(old)old.remove();
+  if(on){var d=document.createElement('div');d.id='thinkMsg';d.className='m bot';d.innerHTML='<div class="think"><img src="hero_lotus.png" alt=""><span>Preparing your answer<span class="dots"> <i></i><i></i><i></i></span></span></div>';$('#msgs').appendChild(d);setLotus();$('#msgs').scrollTop=1e6}
+}
+function send(text,regen){
+  if(busy||!text)return;
+  if(!regen)chat.push({role:'user',text:text});
+  busy=true;renderChat0();thinking(true);
+  ctl=new AbortController();var to=setTimeout(function(){ctl.abort()},20000);
+  var hist=chat.slice(-8).map(function(m){return{role:m.role==='user'?'user':'assistant',content:m.text}});
+  callARVI(text,$('#lang').value,hist,ctl.signal).then(function(r){chat.push({role:'bot',text:r,q:text})}).catch(function(e){chat.push({role:'bot',text:e&&e.name==='AbortError'?'ARVI took too long to reply. Please try again.':'I couldn’t reach ARVI just now. Please try again.',err:1,q:text})}).then(function(){clearTimeout(to);busy=false;thinking(false);persistChat();renderChat0()});
+}
+function renderChat0(){var p=pending;pending=null;renderChat();pending=p}
+$('#chatForm').onsubmit=function(e){e.preventDefault();var v=$('#chatIn').value.trim();if(!v)return;$('#chatIn').value='';grow();send(v)};
+$('#chatIn').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey&&window.innerWidth>860){e.preventDefault();$('#chatForm').requestSubmit()}});
+function grow(){var t=$('#chatIn');t.style.height='auto';t.style.height=Math.min(t.scrollHeight,120)+'px'}
+$('#chatIn').addEventListener('input',grow);
+$('#clearChat').onclick=function(){chat=[];persistChat();renderChat()};
+$('#msgs').addEventListener('click',function(e){
+  var b=e.target.closest('[data-act]');if(!b)return;var a=b.dataset.act,m=chat[+b.dataset.i];
+  if(a==='retry'){var q=chat[chat.length-1].q;chat.pop();send(q,true)}
+  else if(a==='regen'){var q2=chat[chat.length-1].q;chat.pop();send(q2,true)}
+  else if(a==='copy')copy(m.text);
+  else if(a==='wa')copy(m.text.replace(/\*\*(.+?)\*\*/g,'*$1*').replace(/^#+\s*/gm,''));
+  else if(a==='fu'){D.follow.unshift({id:Date.now(),text:(m.q||'ARVI suggestion').slice(0,90),when:'Today',done:0});save();toast('Saved to Follow-ups')}
+  else if(a==='inb'){D.inbox.unshift({id:Date.now(),from:'ARVI draft',text:m.text.slice(0,120),cat:'Enquiry',status:'Draft',unread:1,time:'Just now',urgent:0});save();toast('Added to Smart Inbox')}
+});
+function copy(t){(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Copied')},function(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copied')}catch(e){}ta.remove()})}
+// mic
+(function(){var SR=window.SpeechRecognition||window.webkitSpeechRecognition,mic=$('#mic');
+  if(!SR){mic.style.display='none';return}
+  var r=null;mic.onclick=function(){
+    if(r){r.stop();return}
+    r=new SR();r.lang={English:'en-IN',Malayalam:'ml-IN',Hindi:'hi-IN'}[$('#lang').value];
+    r.onresult=function(e){$('#chatIn').value=e.results[0][0].transcript;grow()};
+    r.onend=function(){mic.classList.remove('rec');r=null};r.onerror=function(){toast('Mic not available')};
+    mic.classList.add('rec');r.start()}})();
+
+/* ================= EXPORT ================= */
+var EX={
+ students:{t:'Students',d:'Names, levels and status',h:['Name','Phone','Level','Status','Last visit','Note'],r:function(){return D.students.map(function(s){return[s.name,s.phone,s.level,s.status,s.last,s.note]})}},
+ inbox:{t:'Smart Inbox',d:'Messages and categories',h:['From','Message','Category','Status','Time'],r:function(){return D.inbox.map(function(m){return[m.from,m.text,m.cat,m.status,m.time]})}},
+ classes:{t:'Classes',d:'Schedule and bookings',h:['Class','When','Capacity','Booked'],r:function(){return D.classes.map(function(c){return[c.name,c.when,c.cap,c.booked]})}},
+ followups:{t:'Follow-ups',d:'Tasks and their status',h:['Task','When','Done'],r:function(){return D.follow.map(function(f){return[f.text,f.when,f.done?'Yes':'No']})}}};
+function csv(k){var e=EX[k],rows=[e.h].concat(e.r());return '﻿'+rows.map(function(r){return r.map(function(c){c=String(c==null?'':c);if(/^([=@]|[+-][^0-9 ])/.test(c))c="'"+c;return '"'+c.replace(/"/g,'""')+'"'}).join(',')}).join('\r\n')}
+function dl(name,blob){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
+function renderExport(){
+  $('#exGrid').innerHTML=Object.keys(EX).map(function(k){var e=EX[k];return '<div class="card" style="display:flex;flex-direction:column;gap:8px"><h3 style="font-size:22px">'+e.t+'</h3><p class="sub" style="flex:1">'+e.d+' · '+e.r().length+' rows</p><button class="btn" data-ex="'+k+'">'+ICON('dl')+'Download CSV</button></div>'}).join('');
+  $$('[data-ex]').forEach(function(b){b.onclick=function(){dl('arvyx-'+b.dataset.ex+'.csv',new Blob([csv(b.dataset.ex)],{type:'text/csv'}))}});
+}
+// minimal ZIP (store, no compression)
+var CRC=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=CRC[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function zip(files){
+  var enc=new TextEncoder(),parts=[],cd=[],off=0;
+  files.forEach(function(f){var nm=enc.encode(f.name),d=enc.encode(f.data),crc=crc32(d);
+    var h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);h.setUint16(10,0,true);h.setUint16(12,0x21,true);h.setUint32(14,crc,true);h.setUint32(18,d.length,true);h.setUint32(22,d.length,true);h.setUint16(26,nm.length,true);h.setUint16(28,0,true);
+    parts.push(h.buffer,nm,d);
+    var c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(12,0,true);c.setUint16(14,0x21,true);c.setUint32(16,crc,true);c.setUint32(20,d.length,true);c.setUint32(24,d.length,true);c.setUint16(28,nm.length,true);c.setUint32(42,off,true);
+    cd.push(c.buffer,nm);off+=30+nm.length+d.length});
+  var cs=0;cd.forEach(function(x){cs+=x.byteLength||x.length});
+  var e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+  return new Blob(parts.concat(cd,[e.buffer]),{type:'application/zip'});
+}
+$('#exAll').onclick=function(){dl('arvyx-export.zip',zip(Object.keys(EX).map(function(k){return{name:'arvyx-'+k+'.csv',data:csv(k)}})))};
+
+/* ================= SETTINGS ================= */
+function renderSettings(){
+  var s=store('arvyx_studio')||{};$('#sName').value=s.name||'';$('#sCity').value=s.city||'';$('#sUrl').value=store('arvi_url')||'';applyMode();ping(false);
+}
+function saveStudio(){store('arvyx_studio',{name:$('#sName').value,city:$('#sCity').value});var e=$('#sSaved');e.classList.add('show');clearTimeout(saveStudio.t);saveStudio.t=setTimeout(function(){e.classList.remove('show')},1500)}
+$('#sName').oninput=saveStudio;$('#sCity').oninput=saveStudio;
+$('#saveUrl').onclick=function(){store('arvi_url',$('#sUrl').value.trim());toast('Address saved');ping(true)};
+$('#resetData').onclick=function(){if(confirm('Reset all sample data on this device?')){D=seed();save();toast('Reset done')}};
+$('#testAi').onclick=function(){ping(true)};
+function ping(real){
+  var led=$('#led'),tx=$('#ledTxt');
+  if(!arviUrl()){led.className='led';tx.textContent='Demo mode — not connected';return}
+  if(!real){led.className='led';tx.textContent='Connected address saved';return}
+  tx.textContent='Testing…';
+  callARVI('Reply with one word: ready','English',[],undefined).then(function(){led.className='led ok';tx.textContent='ARVI is online ✓'}).catch(function(){led.className='led bad';tx.textContent='ARVI could not be reached'});
+}
+
+/* ================= START ================= */
+applyMode();greeting();route();
+setInterval(function(){applyMode();greeting()},600000);
+})();
 </script>
-<script>(function(){const q=["Yoga helps bring body, breath and mind into balance.","A little time on the mat can bring more calm to the day.","Yoga is a practice of awareness, not perfection.","Breathe deeply. Move gently. Meet yourself where you are.","Regular yoga practice can support flexibility, balance and mindful living.","Small steps on the mat create big changes in life.","Yoga invites us to pause, reconnect and respond with care.","The purpose of yoga is to create harmony within and around us."];const quote=q[Math.floor(Math.random()*q.length)];function apply(){document.querySelectorAll(".home-quote").forEach(e=>e.textContent=quote)}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",apply,{once:true});else apply()})();</script>
 </body>
 </html>
