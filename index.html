@@ -75,6 +75,9 @@ main{min-width:0;background:var(--bg);position:relative}
 .ready:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 4px rgba(94,158,126,.2)}
 .avatar{width:36px;height:36px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none}
 .avatar img{width:22px}
+.lotus-ic{width:48px;height:48px;flex:none;display:grid;place-items:center}.lotus-ic img{width:100%;height:auto;display:block;filter:drop-shadow(0 0 6px rgba(94,158,126,.35))}
+:root[data-mode="dark"] .lotus-ic img{filter:brightness(1.6) drop-shadow(0 0 6px rgba(45,212,207,.7))}
+.bub b{font-weight:700}.bub .li{display:block;padding-left:14px;text-indent:-14px}
 .today{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
 .today a{flex:1;min-width:130px;background:var(--warm);border-radius:14px;padding:10px 14px;text-decoration:none;color:var(--text);display:block}
 .today b{font-size:20px;font-weight:700;font-family:var(--sans);color:var(--accent);display:block;line-height:1.1}
@@ -203,6 +206,58 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
   table.stu td{border:0;padding:1px 8px}
   .hide-m{display:none}
 }
+
+/* ===== professional polish: flatter, quieter, tighter ===== */
+:root{--r:12px}
+body{font-size:15px;letter-spacing:-.003em}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em}
+.card{border-radius:var(--r);box-shadow:0 1px 2px rgba(22,71,58,.05)}
+:root[data-mode="dark"] .card{box-shadow:none}
+.top h1{font-size:26px}.top p{font-size:14px}
+.hero h2{font-size:22px;font-weight:600;margin-top:10px}
+.hero .tag{font-size:11px;letter-spacing:.24em}
+.wordmark{font-size:40px;font-weight:500;letter-spacing:.32em}
+.hero .lotus{width:min(240px,55vw)}
+.statusrow{display:flex;align-items:center;gap:8px;margin:2px 0 14px}
+.statusrow .lotus-ic{width:34px;height:34px}
+.statusrow .ready{font-size:13px}
+.today{gap:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:0 0 6px;flex-wrap:nowrap}
+.today a{background:none;border-radius:0;border-right:1px solid var(--line);min-width:0;padding:12px 16px}
+.today a:last-child{border-right:0}
+.today b{font-size:18px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.today span{font-size:12px;color:var(--muted)}
+.topics{gap:10px}
+.topic{border-radius:var(--r);padding:14px 10px;gap:6px;align-items:flex-start;text-align:left}
+.topic .i{width:22px;height:22px}.topic b{font-size:13.5px;font-weight:600}.topic span{font-size:12px}
+.ask{border-radius:14px;padding:5px 5px 5px 16px}
+.send{border-radius:10px;width:38px;height:38px}
+.btn{border-radius:10px;font-weight:600}
+.askbtn{border-radius:10px}
+.chip{border-radius:8px;padding:6px 12px;font-size:13px}
+.pill,.seg,.seg button:first-child{border-radius:10px}.seg{border-radius:10px}
+.icobtn{border-radius:10px;width:38px;height:38px}
+.tag{border-radius:6px;font-size:11.5px;padding:2px 8px}
+.acts button{border-radius:8px}
+.bub{border-radius:12px}.m.user .bub{border-bottom-right-radius:4px}.m.bot .bub{border-bottom-left-radius:4px}
+.composer .ask{border-radius:14px}
+.sheet>div{border-radius:16px 16px 0 0}
+.prompt .ic{border-radius:10px;width:38px;height:38px}
+.prompt{border-radius:10px}.prompt b{font-weight:600}
+.whygrid .card{padding:14px}.why h3{font-size:16px;font-weight:600}
+.quote{font-size:19px;margin-top:22px}
+.nav a{border-radius:10px;font-weight:500;font-size:14.5px}
+.brand b{font-weight:500}
+.field input,.field select,.field textarea,details{border-radius:10px}
+.dot{width:8px;height:8px}
+.cap{height:5px}.chk{border-radius:6px}
+@media(max-width:860px){
+  .tl{display:none}
+  .top{margin-bottom:12px}
+  .today a{padding:10px 12px}.today b{font-size:16px}.today a:last-child b{font-size:14px;white-space:normal;line-height:1.25}
+  .topics{grid-template-columns:repeat(2,1fr)}
+  .hero h2{font-size:20px}
+  .bnav a{font-size:10.5px}
+}
 </style>
 </head>
 <body>
@@ -250,11 +305,11 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
     <section class="page" id="p-home"><div class="wrap dash">
       <div>
         <div class="top">
-          <div class="greet"><svg class="i" id="gIcon"><use href="#sun"/></svg><span><b id="gText">Good Morning</b> &nbsp;·&nbsp; Breathe · Teach · Inspire</span></div>
+          <div class="greet"><svg class="i" id="gIcon"><use href="#sun"/></svg><span><b id="gText">Good Morning</b> <span class="tl">&nbsp;·&nbsp; Breathe · Teach · Inspire</span></span></div>
           <button class="icobtn" id="modeBtn" aria-label="Toggle light and dark mode"><svg class="i"><use href="#moon"/></svg></button>
         </div>
-        <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 16px">
-          <div class="avatar"><img src="hero_lotus-1.png" alt="ARVI"></div>
+        <div class="statusrow">
+          <div class="lotus-ic"><img class="lt" src="hero_lotus-1.png" alt="ARVI"></div>
           <div class="ready">ARVI is ready</div>
         </div>
         <div class="today" id="today"></div>
@@ -322,7 +377,7 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
     <!-- ARVI CHAT -->
     <section class="page" id="p-arvi">
       <div class="chatpage">
-        <div class="chathead"><div style="display:flex;align-items:center;gap:12px"><div class="avatar"><img src="hero_lotus-1.png" alt=""></div><div><h1>ARVI Assistant</h1><div class="ready" id="aState">Online</div></div></div><button class="btn ghost sm" id="clearChat">New chat</button></div>
+        <div class="chathead"><div style="display:flex;align-items:center;gap:12px"><div class="lotus-ic"><img class="lt" src="hero_lotus-1.png" alt=""></div><div><h1>ARVI Assistant</h1><div class="ready" id="aState">Online</div></div></div><button class="btn ghost sm" id="clearChat">New chat</button></div>
         <div class="msgs" id="msgs" aria-live="polite"></div>
         <div class="note">General guidance, not medical advice.</div>
         <div class="composer">
@@ -433,7 +488,7 @@ function seed(){return{
  inbox:[
   {id:1,from:'Sneha Pillai',text:'Hi! What are the timings for the beginner batch?',cat:'Enquiry',status:'New',unread:1,time:'9:12 am',urgent:0},
   {id:2,from:'Arjun Menon',text:'Can I shift tomorrow’s class to the evening?',cat:'Booking',status:'New',unread:1,time:'8:40 am',urgent:1},
-  {id:3,from:'Meera Nair',text:'Thank you for the lovely session yesterday 🙏',cat:'Feedback',status:'Replied',unread:0,time:'Yesterday',urgent:0},
+  {id:3,from:'Meera Nair',text:'Thank you for the lovely session yesterday',cat:'Feedback',status:'Replied',unread:0,time:'Yesterday',urgent:0},
   {id:4,from:'Rahul Varma',text:'Is the monthly pass still available?',cat:'Payment',status:'New',unread:1,time:'Yesterday',urgent:0}],
  classes:[
   {id:1,name:'Sunrise Vinyasa',when:'Mon · 6:30 am',cap:15,booked:12,past:1},
@@ -468,7 +523,7 @@ function greeting(){
 }
 function setLotus(){
   var dark=document.documentElement.getAttribute('data-mode')==='dark';
-  $$('.hero .lotus,.empty img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus-1.png'});
+  $$('.hero .lotus,.empty img,img.lt').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus-1.png'});
   $$('.think img').forEach(function(i){i.src=dark?'neon_lotus.png':'hero_lotus-1.png'});
 }
 $('#modeBtn').onclick=function(){var d=document.documentElement.getAttribute('data-mode')==='dark';store('arvyx_mode',d?'light':'dark');applyMode()};
@@ -516,7 +571,7 @@ function renderInbox(){
   var cats=['All','Unread','Enquiry','Booking','Payment','Feedback'];
   $('#inboxChips').innerHTML=cats.map(function(c){var n=c==='All'?D.inbox.length:c==='Unread'?D.inbox.filter(function(m){return m.unread}).length:D.inbox.filter(function(m){return m.cat===c}).length;return '<button class="chip'+(c===inboxF?' on':'')+'" data-f="'+c+'">'+c+'<em>'+n+'</em></button>'}).join('');
   var list=D.inbox.filter(function(m){return inboxF==='All'||(inboxF==='Unread'?m.unread:m.cat===inboxF)});
-  $('#inboxList').innerHTML=list.length?list.map(function(m){return '<div class="row"><span class="dot'+(m.unread?'':' read')+'"></span><div class="grow"><div style="display:flex;justify-content:space-between;gap:8px"><span class="name">'+esc(m.from)+'</span><span class="sub">'+esc(m.time)+'</span></div><div class="sub">'+esc(m.text)+'</div><span class="tag t-cat">'+m.cat+'</span><span class="tag t-st">'+m.status+'</span>'+(m.urgent?'<span class="tag t-urgent">Urgent</span>':'')+'<div style="margin-top:8px"><button class="btn sm" data-sug="'+m.id+'">Suggest reply</button></div></div></div>'}).join(''):'<p class="sub" style="padding:18px">Nothing here yet. 🌿</p>';
+  $('#inboxList').innerHTML=list.length?list.map(function(m){return '<div class="row"><span class="dot'+(m.unread?'':' read')+'"></span><div class="grow"><div style="display:flex;justify-content:space-between;gap:8px"><span class="name">'+esc(m.from)+'</span><span class="sub">'+esc(m.time)+'</span></div><div class="sub">'+esc(m.text)+'</div><span class="tag t-cat">'+m.cat+'</span><span class="tag t-st">'+m.status+'</span>'+(m.urgent?'<span class="tag t-urgent">Urgent</span>':'')+'<div style="margin-top:8px"><button class="btn sm" data-sug="'+m.id+'">Suggest reply</button></div></div></div>'}).join(''):'<p class="sub" style="padding:18px">Nothing here yet.</p>';
   $$('#inboxChips .chip').forEach(function(c){c.onclick=function(){inboxF=c.dataset.f;renderInbox()}});
   $$('[data-sug]').forEach(function(b){b.onclick=function(){var m=D.inbox.filter(function(x){return x.id==b.dataset.sug})[0];m.unread=0;save();goAsk('Write a short, warm WhatsApp reply to '+m.from+', who wrote: “'+m.text+'”')}});
 }
@@ -549,7 +604,7 @@ function renderClasses(){
 /* ================= FOLLOW-UPS ================= */
 function renderFollow(){
   var out='';['Today','Tomorrow','Later'].forEach(function(g){var items=D.follow.filter(function(f){return f.when===g});if(!items.length)return;out+='<div class="grp">'+g+'</div><div class="card" style="padding:4px">'+items.map(function(f){return '<div class="row'+(f.done?' done':'')+'"><button class="chk'+(f.done?' on':'')+'" data-t="'+f.id+'" aria-label="Mark done">'+(f.done?ICON('check').replace('class="i"','class="i" style="width:14px;height:14px"'):'')+'</button><div class="grow"><div class="name">'+esc(f.text)+'</div></div><button class="btn ghost sm" data-w="'+f.id+'">Draft message</button></div>'}).join('')+'</div>'});
-  $('#fuList').innerHTML=out||'<p class="sub">All caught up. 🌿</p>';
+  $('#fuList').innerHTML=out||'<p class="sub">All caught up.</p>';
   $$('[data-t]').forEach(function(b){b.onclick=function(){var f=D.follow.filter(function(x){return x.id==b.dataset.t})[0];f.done=f.done?0:1;save();renderFollow()}});
   $$('[data-w]').forEach(function(b){b.onclick=function(){var f=D.follow.filter(function(x){return x.id==b.dataset.w})[0];goAsk('Write a short WhatsApp message for this follow-up: '+f.text)}});
 }
@@ -565,17 +620,18 @@ function renderChat(){
   }else{
     box.innerHTML=chat.map(function(m,i){return bubble(m,i)}).join('');
   }
-  box.scrollTop=box.scrollHeight;
+  setLotus();box.scrollTop=box.scrollHeight;
   if(pending){var q=pending;pending=null;send(q)}
 }
+function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/^\s*[*\-]\s+(.+)$/gm,'<span class="li">\u2022 $1</span>').replace(/^#+\s*(.+)$/gm,'<b>$1</b>').replace(/<\/span>\n/g,'</span>')}
 function bubble(m,i){
   if(m.role==='user')return '<div class="m user"><div class="bub">'+esc(m.text)+'</div></div>';
   var last=i===chat.length-1;
-  return '<div class="m bot"><div class="avatar"><img src="hero_lotus-1.png" alt=""></div><div><div class="bub">'+esc(m.text)+'</div>'+(m.err?'<div class="acts"><button data-act="retry">Retry</button></div>':'<div class="acts"><button data-act="copy" data-i="'+i+'">Copy</button><button data-act="wa" data-i="'+i+'">Copy for WhatsApp</button><button data-act="fu" data-i="'+i+'">Save as follow-up</button><button data-act="inb" data-i="'+i+'">Add to Smart Inbox</button>'+(last?'<button data-act="regen">Regenerate</button>':'')+'</div>')+'</div></div>';
+  return '<div class="m bot"><div class="lotus-ic"><img class="lt" src="hero_lotus-1.png" alt=""></div><div><div class="bub">'+md(m.text)+'</div>'+(m.err?'<div class="acts"><button data-act="retry">Retry</button></div>':'<div class="acts"><button data-act="copy" data-i="'+i+'">Copy</button><button data-act="wa" data-i="'+i+'">Copy for WhatsApp</button><button data-act="fu" data-i="'+i+'">Save as follow-up</button><button data-act="inb" data-i="'+i+'">Add to Smart Inbox</button>'+(last?'<button data-act="regen">Regenerate</button>':'')+'</div>')+'</div></div>';
 }
 function thinking(on){
   var old=$('#thinkMsg');if(old)old.remove();
-  if(on){var d=document.createElement('div');d.id='thinkMsg';d.className='m bot';d.innerHTML='<div class="think"><img src="hero_lotus-1.png" alt=""><span>Preparing your answer<span class="dots"> <i></i><i></i><i></i></span></span></div>';$('#msgs').appendChild(d);setLotus();$('#msgs').scrollTop=1e6}
+  if(on){var d=document.createElement('div');d.id='thinkMsg';d.className='m bot';d.innerHTML='<div class="think"><img class="lt" src="hero_lotus-1.png" alt=""><span>Preparing your answer<span class="dots"> <i></i><i></i><i></i></span></span></div>';$('#msgs').appendChild(d);setLotus();$('#msgs').scrollTop=1e6}
 }
 function send(text,regen){
   if(busy||!text)return;
