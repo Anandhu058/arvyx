@@ -487,8 +487,8 @@ function attempt(url,payload,field,outer,ms,label){
 }
 function callARVI(message,language,history,signal){
   var prompt=buildPrompt(message,language,history);
-  // Fast failover: give Gemini 12 seconds, then try OpenRouter for up to 18 seconds.
-  // This limits normal sequential waiting to about 30 seconds instead of 75 seconds.
+  // Fast failover: try Gemini for up to 5 seconds, then OpenRouter for up to 10 seconds.
+  // Maximum sequential wait is about 15 seconds, excluding connection/setup overhead.
   return attempt(GEMINI_URL,{prompt:prompt},'text',signal,5000,'Gemini').catch(function(e1){
     if(signal&&signal.aborted)throw e1;
     console.warn('Gemini failed or was slow; trying OpenRouter:',e1&&e1.message);
