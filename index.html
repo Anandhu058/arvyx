@@ -469,11 +469,20 @@ function buildPrompt(message,language,history){
   var ctx=(history||[]).slice(0,-1).slice(-6).map(function(m){return (m.role==='user'?'Student/teacher: ':'ARVI: ')+m.content}).join('\n');
   return 'You are ARVI, the calm, friendly assistant of ARVYX for yoga teachers and studios. Reply in '+language+'. Be warm, practical and concise. Give general wellness guidance only, not medical advice.'+(ctx?'\n\nConversation so far:\n'+ctx:'')+'\n\nRequest: '+message;
 }
+function attempt(url,payload,field,outer,ms){
+  var c=new AbortController(),t=setTimeout(function(){c.abort()},ms);
+  if(outer)outer.addEventListener('abort',function(){c.abort()});
+  return post(url,payload,field,c.signal).then(function(r){clearTimeout(t);return r},function(e){clearTimeout(t);throw e});
+}
 function callARVI(message,language,history,signal){
   var prompt=buildPrompt(message,language,history);
-  return post(GEMINI_URL,{prompt:prompt},'text',signal).catch(function(e){
-    if(e&&e.name==='AbortError')throw e;
-    return post(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal);
+  return attempt(GEMINI_URL,{prompt:prompt},'text',signal,30000).catch(function(e1){
+    if(signal&&signal.aborted)throw e1;
+    console.warn('Gemini failed, trying OpenRouter:',e1&&e1.message);
+    return attempt(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal,45000).catch(function(e2){
+      console.warn('OpenRouter failed:',e2&&e2.message);
+      var err=new Error('Both AI services failed');err.detail=(e1&&e1.message)+' | '+(e2&&e2.message);throw err;
+    });
   });
 }
 
@@ -637,9 +646,9 @@ function send(text,regen){
   if(busy||!text)return;
   if(!regen)chat.push({role:'user',text:text});
   busy=true;renderChat0();thinking(true);
-  ctl=new AbortController();var to=setTimeout(function(){ctl.abort()},20000);
+  ctl=new AbortController();var to=setTimeout(function(){ctl.abort()},85000);
   var hist=chat.slice(-8).map(function(m){return{role:m.role==='user'?'user':'assistant',content:m.text}});
-  callARVI(text,$('#lang').value,hist,ctl.signal).then(function(r){chat.push({role:'bot',text:r,q:text})}).catch(function(e){chat.push({role:'bot',text:e&&e.name==='AbortError'?'ARVI took too long to reply. Please try again.':'I couldn’t reach ARVI just now. Please try again.',err:1,q:text})}).then(function(){clearTimeout(to);busy=false;thinking(false);persistChat();renderChat0()});
+  callARVI(text,$('#lang').value,hist,ctl.signal).then(function(r){chat.push({role:'bot',text:r,q:text})}).catch(function(e){chat.push({role:'bot',text:e&&e.name==='AbortError'?'ARVI is taking longer than usual. Please tap Retry.':'I couldn’t reach ARVI just now. Please tap Retry.'+(e&&e.detail?'\n\n('+e.detail+')':''),err:1,q:text})}).then(function(){clearTimeout(to);busy=false;thinking(false);persistChat();renderChat0()});
 }
 function renderChat0(){var p=pending;pending=null;renderChat();pending=p}
 $('#chatForm').onsubmit=function(e){e.preventDefault();var v=$('#chatIn').value.trim();if(!v)return;$('#chatIn').value='';grow();send(v)};
