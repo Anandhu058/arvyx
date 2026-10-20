@@ -489,10 +489,10 @@ function callARVI(message,language,history,signal){
   var prompt=buildPrompt(message,language,history);
   // Fast failover: give Gemini 12 seconds, then try OpenRouter for up to 18 seconds.
   // This limits normal sequential waiting to about 30 seconds instead of 75 seconds.
-  return attempt(GEMINI_URL,{prompt:prompt},'text',signal,12000,'Gemini').catch(function(e1){
+  return attempt(GEMINI_URL,{prompt:prompt},'text',signal,5000,'Gemini').catch(function(e1){
     if(signal&&signal.aborted)throw e1;
     console.warn('Gemini failed or was slow; trying OpenRouter:',e1&&e1.message);
-    return attempt(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal,18000,'OpenRouter').catch(function(e2){
+    return attempt(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal,10000,'OpenRouter').catch(function(e2){
       console.warn('OpenRouter failed:',e2&&e2.message);
       var err=new Error('Both AI services failed');
       err.detail=(e1&&e1.message)+' | '+(e2&&e2.message);
