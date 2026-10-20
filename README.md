@@ -52,7 +52,47 @@ Fonts: Inter (interface), Cormorant Garamond (wordmark and quotes).
 
 ## Roadmap
 
-- Lead pipeline (ARVYX Leads) and message templates
-- Memberships and renewals
-- Sign-in and a Supabase database for real student data
-- WhatsApp connection
+Planned features, grouped by priority. Checked items are done.
+
+### Next up
+- [ ] **Lead Pipeline (ARVYX Leads)** — track enquiries from New to Contacted, Trial booked, Joined or Lost
+- [ ] **Message Templates** — saved WhatsApp replies for fees, timings, trials and renewals, with ARVI personalisation and English / Malayalam / Hindi versions
+- [ ] **Sign-in and database** — Supabase Auth, row-level security and a real student database
+
+### Studio management
+- [ ] **Memberships and renewals** — plan type, expiry and payment status, with a "renewals due this week" list
+- [ ] **Attendance check-in** — tap-to-mark class attendance that feeds the inactive-students list
+- [ ] **Class booking and waitlist** — let students reserve spots and join a waitlist when a class is full
+- [ ] **Multiple teachers and roles** — separate logins for owner, teacher and front desk
+- [ ] **Student notes and goals** — injuries, preferences and progress per student
+
+### ARVI intelligence
+- [ ] **Studio Insights** — weekly summary: new students, class fill rate, inactive students, best-performing class, with one recommendation from ARVI
+- [ ] **Daily brief** — morning card on Home with replies waiting, renewals due and class availability
+- [ ] **Class sequence library** — save sequences and themes; ARVI suggests flows by level and duration
+- [ ] **Content planner** — monthly Instagram captions and workshop posts, tied to dates such as Onam, Vishu and International Yoga Day
+- [ ] **Voice replies in Malayalam** — speak a question and hear the answer
+
+### Messaging and growth
+- [ ] **WhatsApp connection** — send and receive messages inside ARVYX
+- [ ] **Automated reminders** — class reminders, renewal nudges and win-back messages for inactive students
+- [ ] **Birthday and milestone messages** — for example, a student's 50th class
+- [ ] **Lead capture form** — a public enquiry link or QR code that feeds the Smart Inbox
+- [ ] **Reviews and referrals** — request reviews and track referral rewards
+
+### Payments and reports
+- [ ] **UPI / payment links** — collect fees and mark payments automatically
+- [ ] **Revenue and retention reports** — monthly charts and PDF export
+- [ ] **Scheduled exports** — weekly CSV to email
+
+### Product polish
+- [ ] **Command search** — jump to any student, class or page
+- [ ] **Installable app (PWA)** — add ARVYX to the phone home screen, with offline support
+- [ ] **Notifications** — in-app and push alerts for new messages and due follow-ups
+- [ ] **Accessibility and language pass** — screen-reader labels and full Malayalam interface
+
+### Done
+- [x] Dashboard, Smart Inbox, Students, Classes, Follow-ups
+- [x] ARVI chat with Gemini and OpenRouter fallback
+- [x] Export Centre (CSV and ZIP)
+- [x] Light and dark mode with automatic evening switch
