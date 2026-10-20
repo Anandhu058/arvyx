@@ -77,6 +77,7 @@ main{min-width:0;background:var(--bg);position:relative}
 .avatar img{width:22px}
 .lotus-ic{width:48px;height:48px;flex:none;display:grid;place-items:center}.lotus-ic img{width:100%;height:auto;display:block;filter:drop-shadow(0 0 6px rgba(94,158,126,.35))}
 :root[data-mode="dark"] .lotus-ic img{filter:brightness(1.6) drop-shadow(0 0 6px rgba(45,212,207,.7))}
+.stopnote{align-self:center;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 10px}
 .bub b{font-weight:700}.bub .li{display:block;padding-left:14px;text-indent:-14px}
 .today{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
 .today a{flex:1;min-width:130px;background:var(--warm);border-radius:14px;padding:10px 14px;text-decoration:none;color:var(--text);display:block}
@@ -180,7 +181,6 @@ ol.steps{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:8px
 .toast{position:fixed;left:50%;bottom:calc(90px + var(--safe-b));transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:13.5px;z-index:60;opacity:0;pointer-events:none;transition:.25s}
 .toast.on{opacity:1}
 .bnav{display:none}
-.hide-m{}
 @media(max-width:1100px){.wrap.dash{grid-template-columns:minmax(0,1fr)}.prompts{display:none}.split{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:860px){
   .app{display:block}
@@ -280,6 +280,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.02em}
 <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10h7"/></symbol>
 <symbol id="book" viewBox="0 0 24 24"><path d="M4 5.5C7 4 9.5 4.5 12 6.5c2.5-2 5-2.5 8-1v13c-3-1.5-5.5-1-8 1-2.5-2-5-2.5-8-1z"/><path d="M12 6.5V19.5"/></symbol>
 <symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor"/></symbol>
 <symbol id="back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
 </defs></svg>
 
@@ -385,7 +386,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.02em}
             <select class="sel" id="lang" aria-label="Reply language"><option value="English">EN</option><option value="Malayalam">മല</option><option value="Hindi">हिं</option></select>
             <textarea id="chatIn" rows="1" placeholder="Message ARVI…" aria-label="Message ARVI"></textarea>
             <button type="button" class="send mic" id="mic" aria-label="Speak" style="background:var(--warm);color:var(--accent)"><svg class="i"><use href="#mic"/></svg></button>
-            <button class="send" aria-label="Send"><svg class="i"><use href="#send"/></svg></button>
+            <button class="send" id="sendBtn" aria-label="Send"><svg class="i"><use href="#send"/></svg></button>
           </form>
         </div>
       </div>
@@ -469,19 +470,33 @@ function buildPrompt(message,language,history){
   var ctx=(history||[]).slice(0,-1).slice(-6).map(function(m){return (m.role==='user'?'Student/teacher: ':'ARVI: ')+m.content}).join('\n');
   return 'You are ARVI, the calm, friendly assistant of ARVYX for yoga teachers and studios. Reply in '+language+'. Be warm, practical and concise. Give general wellness guidance only, not medical advice.'+(ctx?'\n\nConversation so far:\n'+ctx:'')+'\n\nRequest: '+message;
 }
-function attempt(url,payload,field,outer,ms){
-  var c=new AbortController(),t=setTimeout(function(){c.abort()},ms);
-  if(outer)outer.addEventListener('abort',function(){c.abort()});
-  return post(url,payload,field,c.signal).then(function(r){clearTimeout(t);return r},function(e){clearTimeout(t);throw e});
+function attempt(url,payload,field,outer,ms,label){
+  var c=new AbortController(),timedOut=false,started=Date.now(),timer;
+  function cleanup(){clearTimeout(timer);if(outer)outer.removeEventListener('abort',onOuterAbort)}
+  function onOuterAbort(){c.abort()}
+  if(outer){if(outer.aborted)c.abort();else outer.addEventListener('abort',onOuterAbort,{once:true})}
+  timer=setTimeout(function(){timedOut=true;c.abort()},ms);
+  return post(url,payload,field,c.signal).then(function(reply){
+    console.info('ARVI '+label+' response in '+((Date.now()-started)/1000).toFixed(1)+'s');
+    cleanup();return reply;
+  },function(e){
+    cleanup();
+    if(timedOut){var timeoutError=new Error(label+' timed out after '+Math.round(ms/1000)+' seconds');timeoutError.name='TimeoutError';throw timeoutError}
+    throw e;
+  });
 }
 function callARVI(message,language,history,signal){
   var prompt=buildPrompt(message,language,history);
-  return attempt(GEMINI_URL,{prompt:prompt},'text',signal,30000).catch(function(e1){
+  // Fast failover: give Gemini 12 seconds, then try OpenRouter for up to 18 seconds.
+  // This limits normal sequential waiting to about 30 seconds instead of 75 seconds.
+  return attempt(GEMINI_URL,{prompt:prompt},'text',signal,12000,'Gemini').catch(function(e1){
     if(signal&&signal.aborted)throw e1;
-    console.warn('Gemini failed, trying OpenRouter:',e1&&e1.message);
-    return attempt(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal,45000).catch(function(e2){
+    console.warn('Gemini failed or was slow; trying OpenRouter:',e1&&e1.message);
+    return attempt(OPENROUTER_URL,{message:prompt.slice(0,3900)},'answer',signal,18000,'OpenRouter').catch(function(e2){
       console.warn('OpenRouter failed:',e2&&e2.message);
-      var err=new Error('Both AI services failed');err.detail=(e1&&e1.message)+' | '+(e2&&e2.message);throw err;
+      var err=new Error('Both AI services failed');
+      err.detail=(e1&&e1.message)+' | '+(e2&&e2.message);
+      throw err;
     });
   });
 }
@@ -634,6 +649,7 @@ function renderChat(){
 }
 function md(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/^\s*[*\-]\s+(.+)$/gm,'<span class="li">\u2022 $1</span>').replace(/^#+\s*(.+)$/gm,'<b>$1</b>').replace(/<\/span>\n/g,'</span>')}
 function bubble(m,i){
+  if(m.role==='note')return '<div class="stopnote">'+esc(m.text)+'</div>';
   if(m.role==='user')return '<div class="m user"><div class="bub">'+esc(m.text)+'</div></div>';
   var last=i===chat.length-1;
   return '<div class="m bot"><div class="lotus-ic"><img class="lt" src="hero_lotus-1.png" alt=""></div><div><div class="bub">'+md(m.text)+'</div>'+(m.err?'<div class="acts"><button data-act="retry">Retry</button></div>':'<div class="acts"><button data-act="copy" data-i="'+i+'">Copy</button><button data-act="wa" data-i="'+i+'">Copy for WhatsApp</button><button data-act="fu" data-i="'+i+'">Save as follow-up</button><button data-act="inb" data-i="'+i+'">Add to Smart Inbox</button>'+(last?'<button data-act="regen">Regenerate</button>':'')+'</div>')+'</div></div>';
@@ -642,20 +658,40 @@ function thinking(on){
   var old=$('#thinkMsg');if(old)old.remove();
   if(on){var d=document.createElement('div');d.id='thinkMsg';d.className='m bot';d.innerHTML='<div class="think"><img class="lt" src="hero_lotus-1.png" alt=""><span>Preparing your answer<span class="dots"> <i></i><i></i><i></i></span></span></div>';$('#msgs').appendChild(d);setLotus();$('#msgs').scrollTop=1e6}
 }
+var reqId=0;
+function setBusy(b){
+  busy=b;var btn=$('#sendBtn');
+  btn.innerHTML='<svg class="i"><use href="#'+(b?'stop':'send')+'"/></svg>';
+  btn.setAttribute('aria-label',b?'Stop':'Send');btn.title=b?'Stop':'Send';
+  $('#aState').textContent=b?'Thinking…':'Online';
+}
+function stopChat(silent){
+  if(!busy)return;
+  reqId++;try{ctl.abort()}catch(e){}
+  setBusy(false);thinking(false);
+  if(!silent)chat.push({role:'note',text:'Stopped'});
+  persistChat();renderChat0();
+}
 function send(text,regen){
-  if(busy||!text)return;
+  if(!text)return;
+  if(busy)stopChat(true);            // a new question replaces the one in progress
   if(!regen)chat.push({role:'user',text:text});
-  busy=true;renderChat0();thinking(true);
+  var my=++reqId;
+  setBusy(true);renderChat0();thinking(true);
   ctl=new AbortController();var to=setTimeout(function(){ctl.abort()},85000);
-  var hist=chat.slice(-8).map(function(m){return{role:m.role==='user'?'user':'assistant',content:m.text}});
-  callARVI(text,$('#lang').value,hist,ctl.signal).then(function(r){chat.push({role:'bot',text:r,q:text})}).catch(function(e){chat.push({role:'bot',text:e&&e.name==='AbortError'?'ARVI is taking longer than usual. Please tap Retry.':'I couldn’t reach ARVI just now. Please tap Retry.'+(e&&e.detail?'\n\n('+e.detail+')':''),err:1,q:text})}).then(function(){clearTimeout(to);busy=false;thinking(false);persistChat();renderChat0()});
+  var hist=chat.filter(function(m){return m.role!=='note'}).slice(-8).map(function(m){return{role:m.role==='user'?'user':'assistant',content:m.text}});
+  callARVI(text,$('#lang').value,hist,ctl.signal).then(function(r){if(my!==reqId)return;chat.push({role:'bot',text:r,q:text})}).catch(function(e){
+    if(my!==reqId)return;
+    chat.push({role:'bot',text:e&&e.name==='AbortError'?'ARVI is taking longer than usual. Please tap Retry.':'I couldn’t reach ARVI just now. Please tap Retry.'+(e&&e.detail?'\n\n('+e.detail+')':''),err:1,q:text})
+  }).then(function(){clearTimeout(to);if(my!==reqId)return;setBusy(false);thinking(false);persistChat();renderChat0()});
 }
 function renderChat0(){var p=pending;pending=null;renderChat();pending=p}
-$('#chatForm').onsubmit=function(e){e.preventDefault();var v=$('#chatIn').value.trim();if(!v)return;$('#chatIn').value='';grow();send(v)};
+$('#chatForm').onsubmit=function(e){e.preventDefault();var v=$('#chatIn').value.trim();if(!v){if(busy)stopChat();return}$('#chatIn').value='';grow();send(v)};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&busy)stopChat()});
 $('#chatIn').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey&&window.innerWidth>860){e.preventDefault();$('#chatForm').requestSubmit()}});
 function grow(){var t=$('#chatIn');t.style.height='auto';t.style.height=Math.min(t.scrollHeight,120)+'px'}
 $('#chatIn').addEventListener('input',grow);
-$('#clearChat').onclick=function(){chat=[];persistChat();renderChat()};
+$('#clearChat').onclick=function(){if(busy)stopChat(true);chat=[];persistChat();renderChat()};
 $('#msgs').addEventListener('click',function(e){
   var b=e.target.closest('[data-act]');if(!b)return;var a=b.dataset.act,m=chat[+b.dataset.i];
   if(a==='retry'){var q=chat[chat.length-1].q;chat.pop();send(q,true)}
